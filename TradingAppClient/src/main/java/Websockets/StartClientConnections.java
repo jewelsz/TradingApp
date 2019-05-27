@@ -1,4 +1,6 @@
-public class StartWebsockets
+package Websockets;
+
+public class StartClientConnections
 {
     public static void main(String[] args)
     {

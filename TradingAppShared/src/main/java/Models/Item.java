@@ -1,3 +1,5 @@
+package Models;
+
 public class Item
 {
     private int id;
@@ -31,7 +33,7 @@ public class Item
     public String toString() {
         return "Greeting{" +
                 "id='" + id + '\'' +
-                ", Item=" + itemName +
+                ", Models.Item=" + itemName +
                 '}';
     }
 }

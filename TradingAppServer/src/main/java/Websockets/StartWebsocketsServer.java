@@ -1,10 +1,12 @@
+package Websockets;
+
 import javax.websocket.server.ServerContainer;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class StartWebsocketsServer
 {
@@ -20,27 +22,27 @@ public class StartWebsocketsServer
         ServerConnector connector = new ServerConnector(webSocketServer);
         connector.setPort(PORT);
         webSocketServer.addConnector(connector);
-        //log.info("Connector added");
+        log.info("Connector added");
 
         ServletContextHandler webSocketContext = new ServletContextHandler(
                 ServletContextHandler.SESSIONS);
         webSocketContext.setContextPath("/");
         webSocketServer.setHandler(webSocketContext);
-        //log.info("Context handler set");
+        log.info("Context handler set");
 
         try {
             ServerContainer serverContainer = WebSocketServerContainerInitializer
                     .configureContext(webSocketContext);
-            //log.info("Initialize javax.websocket layer");
+            log.info("Initialize javax.websocket layer");
 
             serverContainer.addEndpoint(TradingServerEndpoint.class);
-            //log.info("Endpoint added");
+            log.info("Endpoint added");
 
             webSocketServer.start();
-            //log.info("Server started");
+            log.info("Server started");
 
             webSocketServer.join();
-            //log.info("Server joined");
+            log.info("Server joined");
 
         } catch (Throwable t) {
             log.error("Error startWebSocketServer {0}", t);

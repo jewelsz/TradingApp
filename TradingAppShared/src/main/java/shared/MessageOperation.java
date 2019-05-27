@@ -1,0 +1,14 @@
+package shared;
+
+public enum MessageOperation
+{
+    LOGIN,
+    ADDTRADEITEM,
+    REMOVETRADEITEM,
+    ACCEPTTRADE,
+    REGISTERPROPERTY,
+    SUBSCRIBETOPROPERTY,
+    UNSUBSCRIBEFROMPROPERTY,
+    UPDATEPROPERTY
+
+}

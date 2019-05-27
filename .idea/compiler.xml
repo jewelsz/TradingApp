@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TradingAppClient" />
+        <module name="TradingAppRESTServer" />
         <module name="TradingAppServer" />
-        <module name="WebsocketsShared" />
+        <module name="TradingAppShared" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
