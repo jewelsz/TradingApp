@@ -10,14 +10,13 @@ import java.util.Observer;
 
 public class WebsocketClient implements Observer
 {
-    private static final Logger log = LoggerFactory.getLogger(WebsocketClient.class);
 
     void start() {
         try {
             TradingClientEndpoint tradingClientEndpoint = TradingClientEndpoint.getInstance();
             tradingClientEndpoint.addObserver(this);
             tradingClientEndpoint.start();
-            log.info("Websocket client started");
+            System.out.println("Websocket client started");
 
             //tradingClientEndpoint.sendMessageToServer(new Item(1, "Shovel"));
             CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
@@ -25,9 +24,9 @@ public class WebsocketClient implements Observer
             tradingClientEndpoint.sendMessageToServer(message);
 
             tradingClientEndpoint.stop();
-            log.info("Websocket client stopped");
+            System.out.println("Websocket client stopped");
         } catch (Exception ex) {
-            log.error("Client couldn't start.");
+            System.out.println("Client couldn't start.");
         }
     }
 

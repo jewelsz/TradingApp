@@ -2,10 +2,12 @@ package DatabaseCommunicator;
 
 import Models.Player;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class DatabasePlayer implements IDatabaseCommunication
+public class DatabasePlayer implements IDatabasePlayerCommunication
 {
     DatabaseConnection con = new DatabaseConnection();
 

@@ -4,8 +4,15 @@ public class Item
 {
     private int id;
     private String itemName;
+    private int inventoryId;
 
     public Item() {
+    }
+
+    public Item(int id, String itemName, int inventoryId) {
+        this.id = id;
+        this.itemName = itemName;
+        this.inventoryId = inventoryId;
     }
 
     public Item(int id, String itemName) {
@@ -29,11 +36,16 @@ public class Item
         this.itemName = itemName;
     }
 
+    public int getInventoryId() {
+        return inventoryId;
+    }
+
+    public void setInventoryId(int inventoryId) {
+        this.inventoryId = inventoryId;
+    }
+
     @Override
     public String toString() {
-        return "Greeting{" +
-                "id='" + id + '\'' +
-                ", Models.Item=" + itemName +
-                '}';
+        return itemName;
     }
 }

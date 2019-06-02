@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 
 public class RESTServerConnection
 {
-    private static final Logger log = LoggerFactory.getLogger(RESTServerConnection.class);
 
     public static void main(String[] args) throws Exception {
         Server server = new Server(8090); // TODO Config file
@@ -18,14 +17,14 @@ public class RESTServerConnection
         server.setHandler(getJerseyHandler());
 
         server.start();
-        log.info("Server started");
+        System.out.println("REST Server started");
 
         server.join();
-        log.info("Server joined");
+        System.out.println("REST Server joined");
     }
 
     private static Handler getJerseyHandler() {
-        log.info("Create Jersey handler");
+        System.out.println("Create Jersey handler");
         ServletContextHandler handler = new ServletContextHandler(
                 ServletContextHandler.SESSIONS);
 

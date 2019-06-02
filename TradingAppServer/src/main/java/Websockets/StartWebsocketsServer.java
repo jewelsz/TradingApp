@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 
 public class StartWebsocketsServer
 {
-    private static final Logger log = LoggerFactory.getLogger(StartWebsocketsServer.class);
     private static final int PORT = 8095;
 
     public static void main(String[] args) {
@@ -22,30 +21,30 @@ public class StartWebsocketsServer
         ServerConnector connector = new ServerConnector(webSocketServer);
         connector.setPort(PORT);
         webSocketServer.addConnector(connector);
-        log.info("Connector added");
+        System.out.println("Websocket Connector added");
 
         ServletContextHandler webSocketContext = new ServletContextHandler(
                 ServletContextHandler.SESSIONS);
         webSocketContext.setContextPath("/");
         webSocketServer.setHandler(webSocketContext);
-        log.info("Context handler set");
+        System.out.println("Context handler set");
 
         try {
             ServerContainer serverContainer = WebSocketServerContainerInitializer
                     .configureContext(webSocketContext);
-            log.info("Initialize javax.websocket layer");
+            System.out.println("Initialize javax.websocket layer");
 
             serverContainer.addEndpoint(TradingServerEndpoint.class);
-            log.info("Endpoint added");
+            System.out.println("Endpoint added");
 
             webSocketServer.start();
-            log.info("Server started");
+            System.out.println("Server started");
 
             webSocketServer.join();
-            log.info("Server joined");
+            System.out.println("Server joined");
 
         } catch (Throwable t) {
-            log.error("Error startWebSocketServer {0}", t);
+            System.out.println("Error startWebSocketServer " + t);
         }
     }
 }

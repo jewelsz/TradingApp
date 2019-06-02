@@ -1,10 +1,14 @@
 package DatabaseCommunicator;
 
+import Models.Item;
 import Models.Player;
+
+import java.util.ArrayList;
 
 public class DatabaseCommunicator
 {
-    IDatabaseCommunication communication = new DatabasePlayer();
+    IDatabasePlayerCommunication playerCommunication = new DatabasePlayer();
+    IDatabaseItemCommunication itemCommunication = new DatabaseItems();
     private static DatabaseCommunicator instance;
 
     public DatabaseCommunicator() {
@@ -25,13 +29,26 @@ public class DatabaseCommunicator
     {
         //TODO add to database.
         System.out.println("Put in db");
-        communication.insertPlayer(player);
+        playerCommunication.insertPlayer(player);
     }
 
     public Player getPlayer(String name, String password)
     {
-        Player p = communication.getPlayer(name, password);
+        Player p = playerCommunication.getPlayer(name, password);
 
         return p;
     }
+
+    public ArrayList<Item> getInventory(int playerid)
+    {
+        ArrayList<Item> inventory = itemCommunication.getInventory(playerid);
+
+        return inventory;
+    }
+
+    public void deleteFromInventory(ArrayList<Item> items, int playerid)
+    {
+        itemCommunication.removeItemsFromInventory(items);
+    }
+
 }
