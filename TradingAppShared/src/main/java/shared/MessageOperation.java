@@ -2,13 +2,14 @@ package shared;
 
 public enum MessageOperation
 {
-    LOGIN,
     ADDTRADEITEM,
     REMOVETRADEITEM,
     ACCEPTTRADE,
+    TRADEITEMS,
     REGISTERPROPERTY,
+    UNREGISTERPROPERTY,
     SUBSCRIBETOPROPERTY,
     UNSUBSCRIBEFROMPROPERTY,
-    UPDATEPROPERTY
+    UPDATEPROPERTY //Kan misschien wel gewoon weg
 
 }

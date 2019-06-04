@@ -4,6 +4,7 @@ import Models.Item;
 import Models.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseCommunicator
 {
@@ -49,6 +50,12 @@ public class DatabaseCommunicator
     public void deleteFromInventory(ArrayList<Item> items, int playerid)
     {
         itemCommunication.removeItemsFromInventory(items);
+    }
+
+    //Trade
+    public void updateItemsFromInventory(List<Item> items, int playerid)
+    {
+        itemCommunication.updateItemsFromInventory(items, playerid);
     }
 
 }

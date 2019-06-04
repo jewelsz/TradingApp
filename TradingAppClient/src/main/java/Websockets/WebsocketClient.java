@@ -20,7 +20,7 @@ public class WebsocketClient implements Observer
 
             //tradingClientEndpoint.sendMessageToServer(new Item(1, "Shovel"));
             CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
-            message.setOperation(MessageOperation.LOGIN);
+            //message.setOperation(MessageOperation.LOGIN);
             tradingClientEndpoint.sendMessageToServer(message);
 
             tradingClientEndpoint.stop();

@@ -167,27 +167,47 @@ public class TradingClientEndpoint extends Communicator
     }
 
     private void processMessage(String jsonMessage) {
-        Item item;
-        log.info("Processing message: {}", jsonMessage);
-
-        try {
-            item = gson.fromJson(jsonMessage, Item.class);
-            log.info("Message processed: {}", item);
-        } catch (JsonSyntaxException ex) {
-            log.error("Can't process message: {}", ex.getMessage());
+        Gson gson = new Gson();
+        CommunicatorWebsocketMessage wbMessage = null;
+        try
+        {
+            wbMessage = gson.fromJson(jsonMessage, CommunicatorWebsocketMessage.class);
+        } catch (JsonSyntaxException ex)
+        {
+            System.out.println("[WebSocket ERROR: cannot parse Json message " + jsonMessage);
             return;
         }
 
-        String content = item.getItemName();
-        if (content == null || "".equals(content)) {
-            log.error("Message is empty");
-            return;
+        // Operation defined in message
+        MessageOperation operation;
+        operation = wbMessage.getOperation();
+
+        // Process message based on operation
+        String property = wbMessage.getProperty();
+        if (null != operation && null != property && !"".equals(property))
+        {
+            switch (operation)
+            {
+
+                case ACCEPTTRADE:
+                    // Accept trade
+
+                    break;
+                case TRADEITEMS:
+                    // trade items
+
+                    break;
+                case ADDTRADEITEM:
+                    // Add opponents items to trade list
+                    break;
+                case REMOVETRADEITEM:
+                    // Remove item from opponent list
+                    break;
+
+                default:
+                    System.out.println("[WebSocket ERROR: cannot process Json message " + jsonMessage);
+                    break;
+            }
         }
-
-        Item commMessage = new Item();
-        commMessage.setItemName(content);
-
-        this.setChanged();
-        this.notifyObservers(commMessage);
     }
 }
