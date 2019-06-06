@@ -1,14 +1,14 @@
-package Websockets;
+package Controller;
 
-
+import REST.RESTClientCommunicatorController;
+import Websockets.StartWebsocketsClientConnections;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Controller.GUIController;
 
-public class StartClientConnections extends Application
+public class StartTradingGame extends Application
 {
     @Override
     public void start(Stage primaryStage) throws Exception
@@ -21,8 +21,5 @@ public class StartClientConnections extends Application
     public static void main(String[] args)
     {
         launch(args);
-        //WebsocketClient websocketClient = new WebsocketClient();
-        //websocketClient.start();
-        GUIController controller = new GUIController();
     }
 }

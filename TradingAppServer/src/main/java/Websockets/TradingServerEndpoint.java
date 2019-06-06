@@ -153,6 +153,20 @@ public class TradingServerEndpoint
                         System.out.println("[WebSocket end sending message to subscribers]");
                     }
                     break;
+//                case GETINVENTORY:
+//                    // Send the message to all clients that are subscribed to this property
+//                    if (propertySessions.get(property) != null)
+//                    {
+//                        System.out.println("[WebSocket send ] " + jsonMessage + " to:");
+//                        for (Session sess : propertySessions.get(property))
+//                        {
+//                            // Use asynchronous communication
+//                            System.out.println("\t\t >> Client associated with server side session ID: " + sess.getId());
+//                            sess.getAsyncRemote().sendText(jsonMessage);
+//                        }
+//                        System.out.println("[WebSocket end sending message to subscribers]");
+//                    }
+//                    break;
                 case REMOVETRADEITEM:
                     // Send the message to all clients that are subscribed to this property
                     if (propertySessions.get(property) != null)

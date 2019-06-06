@@ -2,6 +2,7 @@ package DatabaseCommunicator;
 
 import Models.Item;
 import Models.Player;
+import Models.ResponseList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +41,12 @@ public class DatabaseCommunicator
         return p;
     }
 
-    public ArrayList<Item> getInventory(int playerid)
+    public ResponseList getInventory(int playerid)
     {
-        ArrayList<Item> inventory = itemCommunication.getInventory(playerid);
-
-        return inventory;
+        List<Item> inventory = itemCommunication.getInventory(playerid);
+        ResponseList responseList = new ResponseList();
+        responseList.setItems(inventory);
+        return responseList;
     }
 
     public void deleteFromInventory(ArrayList<Item> items, int playerid)

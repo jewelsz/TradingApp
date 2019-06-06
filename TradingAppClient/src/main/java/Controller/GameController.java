@@ -1,6 +1,11 @@
 package Controller;
 
 import Models.Item;
+import Models.Player;
+import REST.RESTClientCommunicator;
+import REST.RESTClientCommunicatorController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -10,53 +15,45 @@ import java.util.List;
 
 public class GameController
 {
-    private List<Item> inventory;
-    private List<Item> playerTradeBag;
-    private List<Item> opponentTradeBag;
+    public ObservableList<Item> inventory = FXCollections.observableArrayList();
+    public ObservableList<Item> playerTradeBag = FXCollections.observableArrayList();
+    public ObservableList<Item> opponentTradeBag = FXCollections.observableArrayList();
 
-    private final PropertyChangeSupport support;
-    //private final PropertyChangeSupport support2;
+    RESTClientCommunicatorController RESTController;
+
+    Player thisPlayer;
 
     public GameController()
     {
-        inventory = new ArrayList<>();
-        playerTradeBag = new ArrayList<>();
-        opponentTradeBag = new ArrayList<>();
-
-        support = new PropertyChangeSupport(this);
-        //support2 = new PropertyChangeSupport(this);
-
-        //fillPlayerInventory();
-        //Item item = new Item(1,"zwaardje");
-        //addItemToOpponentTrade(item);
+        RESTController = new RESTClientCommunicatorController();
     }
 
-    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)
-    {
-        support.addPropertyChangeListener(propertyName, listener);
+    public void setRESTController(RESTClientCommunicatorController RESTController) {
+        this.RESTController = RESTController;
     }
 
     public void addItemToOpponentTrade(Item item)
     {
         opponentTradeBag.add(item);
-        support.firePropertyChange("addItemOpponentEvent", null, opponentTradeBag);
     }
 
-    public void fillPlayerInventory(Item item)
+    public void getInventoryFromDatabase(int playerid)
     {
-        inventory.add(item);
-        support.firePropertyChange("fillInventoryEvent", null, inventory);
+        inventory.setAll(RESTController.getInventory(playerid));
     }
 
-    public List<Item> getInventory() {
-        return inventory;
+    public String login(String username, String password)
+    {
+        thisPlayer = RESTController.Login(username, password);
+        if(thisPlayer.getId() != 0)
+        {
+            getInventoryFromDatabase(thisPlayer.getId());
+        }
+        return thisPlayer.getName();
     }
 
-    public List<Item> getPlayerTradeBag() {
-        return playerTradeBag;
-    }
-
-    public List<Item> getOpponentTradeBag() {
-        return opponentTradeBag;
+    public void register(String username, String password)
+    {
+        RESTController.register(username, password);
     }
 }

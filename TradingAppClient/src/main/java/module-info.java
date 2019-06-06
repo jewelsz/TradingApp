@@ -9,6 +9,5 @@ module TradinAppClient
     requires org.apache.httpcomponents.httpclient;
     requires org.apache.httpcomponents.httpcore;
     requires java.desktop;
-    opens Websockets to javafx.graphics;
-    opens Controller to javafx.fxml;
+    opens Controller to javafx.graphics, javafx.fxml;
 }

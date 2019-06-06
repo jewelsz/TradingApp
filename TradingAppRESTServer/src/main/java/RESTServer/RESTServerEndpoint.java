@@ -1,12 +1,15 @@
 package RESTServer;
 
 import DatabaseCommunicator.DatabaseCommunicator;
+import Models.Item;
 import Models.Player;
+import Models.ResponseList;
 import com.google.gson.Gson;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 @Path("/registration")
@@ -43,4 +46,16 @@ public class RESTServerEndpoint
         System.out.println("GEVONDEN: "+ myResponse.getId() + " " + myResponse.getName());
         return Response.status(200).entity(gson.toJson(myResponse)).build();
     }
+
+    @GET
+    @Path("/items/{playerid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInventory(@PathParam("playerid") int playerid) {
+//        System.out.println("GET inventory for playerid: "+ playerid);
+        System.out.println("connectie");
+        ResponseList responseList = databaseCommunicator.getInventory(playerid);
+
+        return Response.status(200).entity(gson.toJson(responseList)).build();
+    }
+
 }

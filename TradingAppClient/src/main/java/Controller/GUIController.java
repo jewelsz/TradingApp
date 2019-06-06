@@ -1,51 +1,102 @@
 package Controller;
 
 import Models.Item;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.beans.PropertyChangeEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class GUIController
+public class GUIController implements Initializable
 {
-    //public TextField tbUsername, tbPassword;
-    public ListView listInventory, listTradeItems, listOpponentItems;
+    public TextField tbUsername, tbPassword;
+    @FXML
+    public  ListView<Item> listInventory, listTradeItems, listOpponentItems;
+    public Label lblName, lblError;
 
-    GameController gameController;
+    static GameController gameController;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        gameController.inventory.addListener(new InvalidationListener()
+        {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Inventory initialized");
+            }
+        });
+
+        gameController.playerTradeBag.addListener(new InvalidationListener()
+        {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Trade bag initialized");
+            }
+        });
+
+        gameController.opponentTradeBag.addListener(new InvalidationListener()
+        {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Opponent bag initialized");
+            }
+        });
+
+        listInventory.setItems(gameController.inventory);
+        listTradeItems.setItems(gameController.playerTradeBag);
+        listOpponentItems.setItems(gameController.opponentTradeBag);
+    }
 
     public GUIController()
     {
         gameController = new GameController();
-        gameController.addPropertyChangeListener("addItemOpponentEvent", GUIController::addItemOpponentEvent);
-        //gameController.addPropertyChangeListener("removeItemOpponentEvent", GUIController::addItemOpponentEvent);
-        gameController.addPropertyChangeListener("fillInventoryEvent", GUIController::fillInventoryEvent);
-        //gameController.addPropertyChangeListener("addTradeItemEvent", GUIController::addItemOpponentEvent);
-        Item item = new Item(1,"zwaardje");
-        Item item1 = new Item(1,"helm");
-        Item item2 = new Item(1,"schild");
-        gameController.addItemToOpponentTrade(item);
-        gameController.addItemToOpponentTrade(item1);
-        gameController.addItemToOpponentTrade(item2);
-
-        Item item3 = new Item(1,"ondergoed");
-        Item item4 = new Item(1,"sokken");
-        Item item5 = new Item(1,"horloge");
-        gameController.fillPlayerInventory(item3);
-        gameController.fillPlayerInventory(item4);
-        gameController.fillPlayerInventory(item5);
-
-        gameController.addItemToOpponentTrade(item4);
-
-        //tbUsername.setText("testtekst");
     }
 
-    private static void addItemOpponentEvent(PropertyChangeEvent evt)
+//
+//    public void btnGetPlayerInventory()
+//    {
+//        gameController.fillPlayerInventory();
+//    }
+
+    public void btnAddTradeItem()
     {
-        System.out.println(evt.getNewValue());
+        Item item = listInventory.getSelectionModel().getSelectedItem();
+        gameController.playerTradeBag.add(item);
+        gameController.inventory.remove(item);
     }
 
-    private static void fillInventoryEvent(PropertyChangeEvent evt)
+    public void btnRemoveTradeItem()
     {
-        System.out.println(evt.getNewValue());
+        Item item = listTradeItems.getSelectionModel().getSelectedItem();
+        gameController.playerTradeBag.remove(item);
+        gameController.inventory.add(item);
     }
+
+    public void btnLogin()
+    {
+        lblError.setVisible(false);
+        String username = gameController.login(tbUsername.getText(), tbPassword.getText());
+        System.out.println(username);
+        if(username != null)
+        {
+            lblName.setText(username);
+        }
+        else lblError.setVisible(true);
+    }
+
+    public void btnRegister()
+    {
+        gameController.register(tbUsername.getText(), tbPassword.getText());
+    }
+
 }

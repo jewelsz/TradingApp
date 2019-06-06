@@ -84,14 +84,14 @@ public class DatabaseItems implements IDatabaseItemCommunication
     }
 
     @Override
-    public ArrayList<Item> getInventory(int playerid)
+    public List<Item> getInventory(int playerid)
     {
         String sql = "SELECT item.id, item.name, inventory.id\n" +
                 "FROM item, inventory\n" +
                 "WHERE item.id = inventory.itemid \n" +
                 "AND inventory.playerid = ?";
 
-        ArrayList<Item> dbitems = new ArrayList<Item>();
+        List<Item> dbitems = new ArrayList<Item>();
 
         try (Connection conn = this.con.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {

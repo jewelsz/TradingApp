@@ -10,6 +10,7 @@ public enum MessageOperation
     UNREGISTERPROPERTY,
     SUBSCRIBETOPROPERTY,
     UNSUBSCRIBEFROMPROPERTY,
+    GETINVENTORY,
     UPDATEPROPERTY //Kan misschien wel gewoon weg
 
 }
