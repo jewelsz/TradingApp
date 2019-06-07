@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TradingAppClient" />
+        <module name="TradingAppClientWebsockets" />
         <module name="TradingAppRESTServer" />
         <module name="TradingAppServer" />
         <module name="TradingAppShared" />

@@ -1,11 +1,14 @@
 package DatabaseCommunicator;
 
+import Models.Item;
 import Models.Player;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabasePlayer implements IDatabasePlayerCommunication
 {
@@ -54,5 +57,32 @@ public class DatabasePlayer implements IDatabasePlayerCommunication
         }
 
         return dbplayer;
+    }
+
+    @Override
+    public List<Player> getAllPlayers()
+    {
+        String sql = "SELECT * FROM player";
+
+        List<Player> dbplayers = new ArrayList<>();
+
+        try (Connection conn = this.con.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs    = pstmt.executeQuery();
+
+            // loop through the result set
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") +  "\t" +
+                        rs.getString("name")+  "\t" +
+                        rs.getString("password"));
+                Player player = new Player(rs.getInt("id"), rs.getString("name"), rs.getString("password"));
+                dbplayers.add(player);
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return dbplayers;
     }
 }

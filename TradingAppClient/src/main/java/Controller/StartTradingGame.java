@@ -1,7 +1,5 @@
 package Controller;
 
-import REST.RESTClientCommunicatorController;
-import Websockets.StartWebsocketsClientConnections;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

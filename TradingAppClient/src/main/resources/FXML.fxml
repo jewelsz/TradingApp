@@ -35,7 +35,7 @@
             <Label layoutX="19.0" layoutY="31.0" text="Username" />
             <Label layoutX="19.0" layoutY="76.0" text="Password" />
             <Button layoutX="103.0" layoutY="112.0" mnemonicParsing="false" onAction="#btnRegister" text="REGISTER" />
-            <Button layoutX="203.0" layoutY="112.0" mnemonicParsing="false" onAction="#btnLogin" prefHeight="31.0" prefWidth="83.0" text="LOGIN" />
+            <Button layoutX="203.0" layoutY="112.0" mnemonicParsing="false" onAction="#btnLogin" prefHeight="31.0" prefWidth="90.0" text="LOGIN" />
             <Label fx:id="lblError" layoutX="174.0" layoutY="162.0" text="Wrong username or password" textFill="#f20b0b" visible="false" />
             <Button layoutX="38.0" layoutY="560.0" mnemonicParsing="false" text="FILL INVENTORY" />
             <Button layoutX="344.0" layoutY="555.0" mnemonicParsing="false" onAction="#btnRemoveTradeItem" prefHeight="41.0" prefWidth="77.0" text="TRADE&gt;&gt;">
@@ -44,7 +44,7 @@
                </font>
             </Button>
             <ListView fx:id="listPlayers" layoutX="439.0" layoutY="20.0" prefHeight="116.0" prefWidth="177.0" />
-            <Button layoutX="340.0" layoutY="26.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="90.0" text="SELECT TRADER">
+            <Button layoutX="340.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnSelectTrader" prefHeight="31.0" prefWidth="90.0" text="SELECT TRADER">
                <font>
                   <Font size="10.0" />
                </font>
@@ -52,6 +52,7 @@
             <Separator layoutX="315.0" layoutY="23.0" orientation="VERTICAL" prefHeight="149.0" prefWidth="6.0" />
             <Label layoutX="21.0" layoutY="162.0" text="Player: " />
             <Label fx:id="lblName" layoutX="86.0" layoutY="162.0" text="Login" />
+            <Label fx:id="lblTradeReady" layoutX="477.0" layoutY="565.0" text="READY TO TRADE" textFill="#0e8d25" visible="false" />
          </children>
       </Pane>
    </children>

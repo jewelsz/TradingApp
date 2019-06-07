@@ -14,6 +14,7 @@
         <module>TradingAppShared</module>
         <module>TradingAppRESTServer</module>
         <module>TradingAppServerController</module>
+        <module>TradingAppClientWebsockets</module>
     </modules>
 
 

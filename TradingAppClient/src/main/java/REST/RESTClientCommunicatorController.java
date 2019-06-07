@@ -20,6 +20,12 @@ public class RESTClientCommunicatorController
         return inventory;
     }
 
+    public List<Player> getAllPlayers()
+    {
+        List<Player> players = communicator.getAllPlayers().getPlayer();
+        return players;
+    }
+
     public void register(String username, String password)
     {
         Player player = new Player(username, password);

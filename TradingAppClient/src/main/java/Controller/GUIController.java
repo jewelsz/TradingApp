@@ -1,6 +1,7 @@
 package Controller;
 
 import Models.Item;
+import Models.Player;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -20,7 +21,8 @@ public class GUIController implements Initializable
     public TextField tbUsername, tbPassword;
     @FXML
     public  ListView<Item> listInventory, listTradeItems, listOpponentItems;
-    public Label lblName, lblError;
+    public ListView<Player> listPlayers;
+    public Label lblName, lblError, lblTradeReady;
 
     static GameController gameController;
 
@@ -51,10 +53,18 @@ public class GUIController implements Initializable
                 System.out.println("Opponent bag initialized");
             }
         });
+        gameController.playerList.addListener(new InvalidationListener()
+        {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Opponent bag initialized");
+            }
+        });
 
         listInventory.setItems(gameController.inventory);
         listTradeItems.setItems(gameController.playerTradeBag);
         listOpponentItems.setItems(gameController.opponentTradeBag);
+        listPlayers.setItems(gameController.playerList);
     }
 
     public GUIController()
@@ -71,8 +81,7 @@ public class GUIController implements Initializable
     public void btnAddTradeItem()
     {
         Item item = listInventory.getSelectionModel().getSelectedItem();
-        gameController.playerTradeBag.add(item);
-        gameController.inventory.remove(item);
+        gameController.addTradeItem(item);
     }
 
     public void btnRemoveTradeItem()
@@ -92,6 +101,12 @@ public class GUIController implements Initializable
             lblName.setText(username);
         }
         else lblError.setVisible(true);
+    }
+
+    public void btnSelectTrader()
+    {
+        System.out.println("Subscribe button clicked");
+        gameController.subscribe(listPlayers.getSelectionModel().getSelectedItem().getName());
     }
 
     public void btnRegister()

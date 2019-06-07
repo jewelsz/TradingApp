@@ -2,6 +2,7 @@ package REST;
 
 import Models.Item;
 import Models.Player;
+import Models.PlayersList;
 import Models.ResponseList;
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
@@ -54,6 +55,15 @@ public class RESTClientCommunicator
         return executeQuery(httpGetQuery);
     }
 
+    PlayersList getAllPlayers() {
+        final String query = playerurl + "/player/players";
+        System.out.println("GET: " + query);
+
+        HttpGet httpGetQuery = new HttpGet(query);
+
+        return executePlayersQuery(httpGetQuery);
+    }
+
     ResponseList getInventory(int playerid) {
         final String query = playerurl + "/items/" + playerid;
         System.out.println("GET: " + query);
@@ -103,5 +113,26 @@ public class RESTClientCommunicator
         }
 
         return items;
+    }
+
+    private PlayersList executePlayersQuery(HttpRequestBase requestBaseQuery) {
+        PlayersList players = null;
+
+        System.out.println("execute query getInventory");
+        try (CloseableHttpClient httpClient = HttpClients.createDefault();
+             CloseableHttpResponse response = httpClient.execute(requestBaseQuery)) {
+            System.out.println("Status: " + response.getStatusLine());
+
+            HttpEntity entity = response.getEntity();
+            final String entityString = EntityUtils.toString(entity);
+            System.out.println("JSON entity: " + entityString);
+
+            players = gson.fromJson(entityString, PlayersList.class);
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
+        return players;
     }
 }
