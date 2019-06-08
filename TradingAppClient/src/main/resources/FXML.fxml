@@ -51,8 +51,10 @@
             </Button>
             <Separator layoutX="315.0" layoutY="23.0" orientation="VERTICAL" prefHeight="149.0" prefWidth="6.0" />
             <Label layoutX="21.0" layoutY="162.0" text="Player: " />
-            <Label fx:id="lblName" layoutX="86.0" layoutY="162.0" text="Login" />
+            <Label fx:id="lblName" layoutX="86.0" layoutY="162.0" text="Login" textFill="#2fe11b" />
             <Label fx:id="lblTradeReady" layoutX="477.0" layoutY="565.0" text="READY TO TRADE" textFill="#0e8d25" visible="false" />
+            <Label fx:id="lblOpponentName" layoutX="536.0" layoutY="162.0" text="Subscribe" textFill="#2fe11b" />
+            <Label layoutX="453.0" layoutY="162.0" text="Opponent:" />
          </children>
       </Pane>
    </children>

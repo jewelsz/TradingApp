@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import shared.CommunicatorWebsocketMessage;
 import shared.TradeItemMessage;
 
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -74,10 +75,6 @@ public class GameController implements Observer
     {
         System.out.println("TRADING ITEMS STARTED");
         websocketCommunicator.tradeItems(playerTradeBag, thisPlayer.getId(), thisPlayer.getName());
-//        if(RESTController.tradeItems(opponentTradeBag, thisPlayer.getId()))
-//        {
-//            playerTradeBag.clear();
-//        }
     }
 
     public void getInventoryFromDatabase(int playerid)

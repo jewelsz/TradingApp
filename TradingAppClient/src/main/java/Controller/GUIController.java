@@ -2,6 +2,7 @@ package Controller;
 
 import Models.Item;
 import Models.Player;
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -22,7 +23,7 @@ public class GUIController implements Initializable
     @FXML
     public  ListView<Item> listInventory, listTradeItems, listOpponentItems;
     public ListView<Player> listPlayers;
-    public Label lblName, lblError, lblTradeReady;
+    public Label lblName, lblError, lblTradeReady, lblOpponentName;
 
     static GameController gameController;
 
@@ -57,7 +58,7 @@ public class GUIController implements Initializable
         {
             @Override
             public void invalidated(Observable observable) {
-                System.out.println("Opponent bag initialized");
+                System.out.println("Players list initialized");
             }
         });
 
@@ -72,11 +73,6 @@ public class GUIController implements Initializable
         gameController = new GameController();
     }
 
-//
-//    public void btnGetPlayerInventory()
-//    {
-//        gameController.fillPlayerInventory();
-//    }
 
     public void btnAddTradeItem()
     {
@@ -98,19 +94,30 @@ public class GUIController implements Initializable
     public void btnLogin()
     {
         lblError.setVisible(false);
-        String username = gameController.login(tbUsername.getText(), tbPassword.getText());
-        System.out.println(username);
-        if(username != null)
+        String usernametxt = tbUsername.getText();
+        String passwordtxt = tbPassword.getText();
+
+        if(tbUsername.getText().isEmpty() || tbPassword.getText().isEmpty())
         {
-            lblName.setText(username);
+            lblError.setVisible(true);
         }
-        else lblError.setVisible(true);
+        else
+        {
+            String username = gameController.login(tbUsername.getText(), tbPassword.getText());
+            if (username != null && tbPassword.getText() != "")
+            {
+                lblName.setText(username);
+                tbUsername.clear();
+                tbPassword.clear();
+            }
+        }
     }
 
     public void btnSelectTrader()
     {
         System.out.println("Subscribe button clicked");
         gameController.subscribe(listPlayers.getSelectionModel().getSelectedItem().getName());
+        lblOpponentName.setText(listPlayers.getSelectionModel().getSelectedItem().getName());
     }
 
     public void btnRegister()
