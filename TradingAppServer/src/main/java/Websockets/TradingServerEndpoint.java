@@ -1,11 +1,11 @@
 package Websockets;
 
 import DatabaseCommunicator.DatabaseCommunicator;
-import Messages.TradeMessage;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import shared.CommunicatorWebsocketMessage;
 import shared.MessageOperation;
+import shared.TradeItemMessage;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
@@ -112,14 +112,13 @@ public class TradingServerEndpoint
                     }
                     break;
                 case TRADEITEMS:
-                    // Send the message to all clients that are subscribed to this property
                     if (propertySessions.get(property) != null)
                     {
                         System.out.println("Reading trade message");
-                        TradeMessage trademsg = null;
+                        TradeItemMessage trademsg = null;
                         try
                         {
-                            trademsg = gson.fromJson(wbMessage.getContent(), TradeMessage.class);
+                            trademsg = gson.fromJson(wbMessage.getContent(), TradeItemMessage.class);
                         }
                         catch (JsonSyntaxException ex)
                         {

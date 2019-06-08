@@ -26,6 +26,11 @@ public class RESTClientCommunicatorController
         return players;
     }
 
+    public boolean tradeItems(List<Item> items, int playerid)
+    {
+        return communicator.tradeItems(items, playerid);
+    }
+
     public void register(String username, String password)
     {
         Player player = new Player(username, password);

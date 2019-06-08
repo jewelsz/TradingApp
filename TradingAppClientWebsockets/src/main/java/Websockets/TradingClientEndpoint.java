@@ -12,6 +12,7 @@ import javax.websocket.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Observable;
 
 @ClientEndpoint
@@ -85,6 +86,16 @@ public class TradingClientEndpoint extends Observable
         sendMessageToServer(message);
     }
 
+    public void removeTradeItem(Item item, String property) {
+        TradeItemMessage trademsg = new TradeItemMessage(item, TradeOperation.REMOVE);
+        String jsonMessage = gson.toJson(trademsg);
+        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
+        message.setOperation(MessageOperation.REMOVETRADEITEM);
+        message.setProperty(property);
+        message.setContent(jsonMessage);
+        sendMessageToServer(message);
+    }
+
     public void register(String property) {
         CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
         message.setOperation(MessageOperation.REGISTERPROPERTY);
@@ -98,6 +109,30 @@ public class TradingClientEndpoint extends Observable
         message.setProperty(property);
         sendMessageToServer(message);
     }
+
+    public void acceptTrade(String property)
+    {
+        TradeItemMessage trademsg = new TradeItemMessage(TradeOperation.ACCEPT);
+        String jsonMessage = gson.toJson(trademsg);
+        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
+        message.setOperation(MessageOperation.ACCEPTTRADE);
+        message.setProperty(property);
+        message.setContent(jsonMessage);
+        sendMessageToServer(message);
+    }
+
+
+    public void tradeItems(List<Item> tradeItems, int playerid, String property)
+    {
+        TradeItemMessage trademsg = new TradeItemMessage(tradeItems, playerid, TradeOperation.TRADE);
+        String jsonMessage = gson.toJson(trademsg);
+        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
+        message.setOperation(MessageOperation.TRADEITEMS);
+        message.setProperty(property);
+        message.setContent(jsonMessage);
+        sendMessageToServer(message);
+    }
+
 
     public void sendMessageToServer(CommunicatorWebsocketMessage message) {
         String jsonMessage = gson.toJson(message);
@@ -117,12 +152,14 @@ public class TradingClientEndpoint extends Observable
     }
 
     private void stopClient() {
-        try {
+        try
+        {
             session.close();
             System.out.println("Session closed");
 
-        } catch (IOException ex) {
-            System.out.println("Error in stopClient "+ex.getMessage());
+        } catch (IOException ex)
+        {
+            System.out.println("Error in stopClient " + ex.getMessage());
         }
     }
 
@@ -150,7 +187,7 @@ public class TradingClientEndpoint extends Observable
             return;
         }
 
-        System.out.println("Update GUI");
+        System.out.println("Message: "+ itemMessage.getOperation());
         this.setChanged();
         this.notifyObservers(itemMessage);
     }

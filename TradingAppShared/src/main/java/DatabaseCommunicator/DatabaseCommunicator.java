@@ -3,7 +3,7 @@ package DatabaseCommunicator;
 import Models.Item;
 import Models.Player;
 import Models.PlayersList;
-import Models.ResponseList;
+import Models.ItemResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +42,12 @@ public class DatabaseCommunicator
         return p;
     }
 
-    public ResponseList getInventory(int playerid)
+    public ItemResponse getInventory(int playerid)
     {
         List<Item> inventory = itemCommunication.getInventory(playerid);
-        ResponseList responseList = new ResponseList();
-        responseList.setItems(inventory);
-        return responseList;
+        ItemResponse itemResponse = new ItemResponse();
+        itemResponse.setItems(inventory);
+        return itemResponse;
     }
 
     public PlayersList getAllPlayers()
@@ -55,6 +55,20 @@ public class DatabaseCommunicator
         List<Player> players = playerCommunication.getAllPlayers();
         PlayersList playersList = new PlayersList(players);
         return playersList;
+    }
+
+    public boolean tradeCheck(List<Item> items, int playerid)
+    {
+        boolean check = true;
+        for(Item i : items)
+        {
+            if(itemCommunication.getPlayerIDFromInventory(i.getInventoryId()) != playerid)
+            {
+                check = false;
+            }
+        }
+
+        return check;
     }
 
     public void deleteFromInventory(ArrayList<Item> items, int playerid)

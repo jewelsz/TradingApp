@@ -156,7 +156,28 @@ public class DatabaseItems implements IDatabaseItemCommunication
     }
 
     @Override
-    public void addItemsFromInventory(List<Item> items) {
+    public int getPlayerIDFromInventory(int inventoryid)
+    {
+        String sql = "SELECT playerid FROM inventory WHERE id = ?";
 
+        int playerid = 0;
+
+        try (Connection conn = this.con.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, inventoryid);
+            ResultSet rs    = pstmt.executeQuery();
+
+            // loop through the result set
+            while (rs.next()) {
+                System.out.println(rs.getInt("playerid"));
+                playerid = (rs.getInt("playerid"));
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return playerid;
     }
+
 }

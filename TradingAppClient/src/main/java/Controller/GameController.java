@@ -6,6 +6,7 @@ import REST.RESTClientCommunicatorController;
 import Websockets.TradingClientEndpoint;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.CommunicatorWebsocketMessage;
@@ -21,14 +22,20 @@ public class GameController implements Observer
     public ObservableList<Item> opponentTradeBag = FXCollections.observableArrayList();
     public ObservableList<Player> playerList = FXCollections.observableArrayList();
 
-    RESTClientCommunicatorController RESTController;
+    private Boolean playerReady;
+    private Boolean opponentReady;
 
-    TradingClientEndpoint websocketCommunicator = null;
+    private Player thisPlayer;
 
-    Player thisPlayer;
+    private RESTClientCommunicatorController RESTController;
+    private TradingClientEndpoint websocketCommunicator = null;
+
 
     public GameController()
     {
+        playerReady = false;
+        opponentReady = false;
+
         RESTController = new RESTClientCommunicatorController();
         websocketCommunicator = TradingClientEndpoint.getInstance();
         websocketCommunicator.addObserver(this);
@@ -43,15 +50,34 @@ public class GameController implements Observer
         websocketCommunicator.addTradeItem(item, thisPlayer.getName());
     }
 
-    public void removeItemFromOpponentTrade(Item item)
+    public void removeTradeItem(Item item)
     {
-        opponentTradeBag.remove(item);
+        playerTradeBag.remove(item);
+        inventory.add(item);
+        websocketCommunicator.removeTradeItem(item, thisPlayer.getName());
     }
 
-    public void addItemToOpponentTrade(Item item)
+    public void acceptTrade()
     {
-        System.out.println("ITEM ADDED TO OPPONENT BAG");
-        opponentTradeBag.add(item);
+        if(playerTradeBag.size() >= 1)
+        {
+            playerReady = true;
+            websocketCommunicator.acceptTrade(thisPlayer.getName());
+            if (playerReady && opponentReady)
+            {
+                tradeItems();
+            }
+        }
+    }
+
+    private void tradeItems()
+    {
+        System.out.println("TRADING ITEMS STARTED");
+        websocketCommunicator.tradeItems(playerTradeBag, thisPlayer.getId(), thisPlayer.getName());
+//        if(RESTController.tradeItems(opponentTradeBag, thisPlayer.getId()))
+//        {
+//            playerTradeBag.clear();
+//        }
     }
 
     public void getInventoryFromDatabase(int playerid)
@@ -99,19 +125,53 @@ public class GameController implements Observer
 
                 case ACCEPT:
                     // Accept trade
-
+                    opponentReady = true;
+                    Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println("OPPONENT READY TO TRADE");
+                        if(opponentReady && playerReady) tradeItems();
+                        playerReady = false;
+                        opponentReady = false;
+                    }
+                });
                     break;
                 case TRADE:
-                    // trade items
-
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            inventory.setAll(RESTController.getInventory(thisPlayer.getId()));
+                            playerTradeBag.clear();
+                            opponentTradeBag.clear();
+                        }
+                    });
                     break;
                 case ADD:
-                    System.out.println("Opponent added new item");
-                    opponentTradeBag.add(message.getItem());
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            playerReady = false;
+                            opponentTradeBag.add(message.getItem());
+                        }
+                    });
                     break;
                 case REMOVE:
+                    playerReady = false;
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            for(Item i : opponentTradeBag)
+                            {
+                                if(i.getId() == message.getItem().getId())
+                                {
+                                    opponentTradeBag.remove(i);
+                                }
+                            }
+                        }
+                    });
+
                     System.out.println("Opponent removed item");
-                    opponentTradeBag.remove(message.getItem());
+                    System.out.println(opponentTradeBag);
                     break;
 
                 default:

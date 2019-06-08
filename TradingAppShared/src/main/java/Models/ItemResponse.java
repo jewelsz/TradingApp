@@ -2,9 +2,16 @@ package Models;
 
 import java.util.List;
 
-public class ResponseList
+public class ItemResponse
 {
     private List<Item> items;
+
+    public ItemResponse(List<Item> items) {
+        this.items = items;
+    }
+
+    public ItemResponse() {
+    }
 
     public List<Item> getItems() {
         return items;

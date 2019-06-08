@@ -10,5 +10,5 @@ public interface IDatabaseItemCommunication
     List<Item> getInventory(int playerid);
     void removeItemsFromInventory(List<Item> items);
     void updateItemsFromInventory(List<Item> items, int playerid);
-    void addItemsFromInventory(List<Item> items);
+    int getPlayerIDFromInventory(int inventoryid);
 }

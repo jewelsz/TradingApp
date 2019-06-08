@@ -87,8 +87,12 @@ public class GUIController implements Initializable
     public void btnRemoveTradeItem()
     {
         Item item = listTradeItems.getSelectionModel().getSelectedItem();
-        gameController.playerTradeBag.remove(item);
-        gameController.inventory.add(item);
+        gameController.removeTradeItem(item);
+    }
+
+    public void btnAcceptTrade()
+    {
+        gameController.acceptTrade();
     }
 
     public void btnLogin()

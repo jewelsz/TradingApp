@@ -1,10 +1,7 @@
 package RESTServer;
 
 import DatabaseCommunicator.DatabaseCommunicator;
-import Models.Item;
-import Models.Player;
-import Models.PlayersList;
-import Models.ResponseList;
+import Models.*;
 import com.google.gson.Gson;
 
 import javax.ws.rs.*;
@@ -50,9 +47,19 @@ public class RESTServerEndpoint
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInventory(@PathParam("playerid") int playerid)
     {
-        ResponseList responseList = databaseCommunicator.getInventory(playerid);
-        return Response.status(200).entity(gson.toJson(responseList)).build();
+        ItemResponse itemResponse = databaseCommunicator.getInventory(playerid);
+        return Response.status(200).entity(gson.toJson(itemResponse)).build();
     }
+
+//    @GET
+//    @Path("/items/trade/{items}/{playerid}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response tradeItems(@PathParam("items") ItemResponse items, @PathParam("playerid") int playerid)
+//    {
+//        System.out.println("PUT trade called for playerid: " + playerid);
+//        TradeResponse check = new TradeResponse(databaseCommunicator.updateItemsFromInventory(items.getItems(), playerid));
+//        return Response.status(200).entity(gson.toJson(check)).build();
+//    }
 
     @GET
     @Path("/player/players")
