@@ -12,7 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="TradingApp" target="1.5" />
+      <module name="TradingAppClient" target="1.5" />
       <module name="TradingAppClient (1)" target="1.5" />
+      <module name="TradingAppServer" target="1.5" />
       <module name="WebsocketsShared" target="1.5" />
     </bytecodeTargetLevel>
   </component>
