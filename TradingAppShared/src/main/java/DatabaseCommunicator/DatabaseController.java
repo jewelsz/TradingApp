@@ -8,22 +8,22 @@ import Models.ItemResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseCommunicator
+public class DatabaseController
 {
-    IDatabasePlayerCommunication playerCommunication = new DatabasePlayer();
-    IDatabaseItemCommunication itemCommunication = new DatabaseItems();
-    private static DatabaseCommunicator instance;
+    IDatabasePlayerCommunication playerCommunication = new DatabasePlayerCommunicator();
+    IDatabaseItemCommunication itemCommunication = new DatabaseItemsCommunicator();
+    private static DatabaseController instance;
 
-    public DatabaseCommunicator() {
+    public DatabaseController() {
     }
 
     //TODO put registration in database.
 
-    public static DatabaseCommunicator getInstance()
+    public static DatabaseController getInstance()
     {
         if (instance == null)
         {
-            instance = new DatabaseCommunicator(); // zet hier de dingen die aangemaakt moeten worden in de constructor
+            instance = new DatabaseController(); // zet hier de dingen die aangemaakt moeten worden in de constructor
         }
         return instance;
     }

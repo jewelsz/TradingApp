@@ -1,20 +1,19 @@
 package RESTServer;
 
-import DatabaseCommunicator.DatabaseCommunicator;
+import DatabaseCommunicator.DatabaseController;
 import Models.*;
 import com.google.gson.Gson;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 
 @Path("/registration")
 public class RESTServerEndpoint
 {
     //private static final Logger log = LoggerFactory.getLogger(RESTServerEndpoint.class);
-    private static DatabaseCommunicator databaseCommunicator = DatabaseCommunicator.getInstance();
+    private static DatabaseController databaseController = DatabaseController.getInstance();
     private final Gson gson;
 
     public RESTServerEndpoint() {
@@ -28,7 +27,7 @@ public class RESTServerEndpoint
     public Response addRegistration(Player player)
     {
         System.out.println("POST add called for key: " + player.getName());
-        databaseCommunicator.addRegistration(player);
+        databaseController.addRegistration(player);
         return Response.status(200).entity(gson.toJson(player)).build();
     }
 
@@ -37,7 +36,7 @@ public class RESTServerEndpoint
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPlayer(@PathParam("playername") String name, @PathParam("playerpass") String password)
     {
-        Player myResponse = databaseCommunicator.getPlayer(name, password);
+        Player myResponse = databaseController.getPlayer(name, password);
         System.out.println("GEVONDEN: "+ myResponse.getId() + " " + myResponse.getName());
         return Response.status(200).entity(gson.toJson(myResponse)).build();
     }
@@ -47,7 +46,7 @@ public class RESTServerEndpoint
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInventory(@PathParam("playerid") int playerid)
     {
-        ItemResponse itemResponse = databaseCommunicator.getInventory(playerid);
+        ItemResponse itemResponse = databaseController.getInventory(playerid);
         return Response.status(200).entity(gson.toJson(itemResponse)).build();
     }
 
@@ -57,7 +56,7 @@ public class RESTServerEndpoint
 //    public Response tradeItems(@PathParam("items") ItemResponse items, @PathParam("playerid") int playerid)
 //    {
 //        System.out.println("PUT trade called for playerid: " + playerid);
-//        TradeResponse check = new TradeResponse(databaseCommunicator.updateItemsFromInventory(items.getItems(), playerid));
+//        TradeResponse check = new TradeResponse(databaseController.updateItemsFromInventory(items.getItems(), playerid));
 //        return Response.status(200).entity(gson.toJson(check)).build();
 //    }
 
@@ -67,7 +66,7 @@ public class RESTServerEndpoint
     public Response getPlayers()
     {
         System.out.println("Get All Players List");
-        PlayersList playersList = databaseCommunicator.getAllPlayers();
+        PlayersList playersList = databaseController.getAllPlayers();
 
         return Response.status(200).entity(gson.toJson(playersList)).build();
     }

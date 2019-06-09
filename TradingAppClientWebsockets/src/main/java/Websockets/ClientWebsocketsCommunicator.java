@@ -16,23 +16,23 @@ import java.util.List;
 import java.util.Observable;
 
 @ClientEndpoint
-public class TradingClientEndpoint extends Observable
+public class ClientWebsocketsCommunicator extends Observable
 {
 
-    private static TradingClientEndpoint instance = null;
+    private static ClientWebsocketsCommunicator instance = null;
     private static final String URI = "ws://localhost:8095/trading/"; // TODO Config file
     private Session session;
     private Gson gson;
     private boolean isRunning = false;
     private String message;
 
-    private TradingClientEndpoint() {
+    private ClientWebsocketsCommunicator() {
         gson = new Gson();
     }
 
-    public static TradingClientEndpoint getInstance() {
+    public static ClientWebsocketsCommunicator getInstance() {
         if (instance == null) {
-            instance = new TradingClientEndpoint();
+            instance = new ClientWebsocketsCommunicator();
             System.out.println("GreeterClientEndpoint singleton instantiated");
         }
         return instance;
@@ -132,6 +132,7 @@ public class TradingClientEndpoint extends Observable
         message.setContent(jsonMessage);
         sendMessageToServer(message);
     }
+
 
 
     public void sendMessageToServer(CommunicatorWebsocketMessage message) {

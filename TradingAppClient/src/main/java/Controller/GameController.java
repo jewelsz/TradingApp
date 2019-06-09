@@ -3,16 +3,12 @@ package Controller;
 import Models.Item;
 import Models.Player;
 import REST.RESTClientCommunicatorController;
-import Websockets.TradingClientEndpoint;
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
+import WebsocketsClient.WebsocketsMessageController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import shared.CommunicatorWebsocketMessage;
 import shared.TradeItemMessage;
 
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -29,7 +25,7 @@ public class GameController implements Observer
     private Player thisPlayer;
 
     private RESTClientCommunicatorController RESTController;
-    private TradingClientEndpoint websocketCommunicator = null;
+    private WebsocketsMessageController wsController;
 
 
     public GameController()
@@ -38,9 +34,7 @@ public class GameController implements Observer
         opponentReady = false;
 
         RESTController = new RESTClientCommunicatorController();
-        websocketCommunicator = TradingClientEndpoint.getInstance();
-        websocketCommunicator.addObserver(this);
-        websocketCommunicator.start();
+        wsController = new WebsocketsMessageController(this);
         playerList.setAll(RESTController.getAllPlayers());
     }
 
@@ -48,14 +42,14 @@ public class GameController implements Observer
     {
         playerTradeBag.add(item);
         inventory.remove(item);
-        websocketCommunicator.addTradeItem(item, thisPlayer.getName());
+        wsController.addTradeItem(item, thisPlayer.getName());
     }
 
     public void removeTradeItem(Item item)
     {
         playerTradeBag.remove(item);
         inventory.add(item);
-        websocketCommunicator.removeTradeItem(item, thisPlayer.getName());
+        wsController.removeTradeItem(item, thisPlayer.getName());
     }
 
     public void acceptTrade()
@@ -63,7 +57,7 @@ public class GameController implements Observer
         if(playerTradeBag.size() >= 1)
         {
             playerReady = true;
-            websocketCommunicator.acceptTrade(thisPlayer.getName());
+            wsController.acceptTrade(thisPlayer.getName());
             if (playerReady && opponentReady)
             {
                 tradeItems();
@@ -74,7 +68,7 @@ public class GameController implements Observer
     private void tradeItems()
     {
         System.out.println("TRADING ITEMS STARTED");
-        websocketCommunicator.tradeItems(playerTradeBag, thisPlayer.getId(), thisPlayer.getName());
+        wsController.tradeItems(playerTradeBag, thisPlayer.getId(), thisPlayer.getName());
     }
 
     public void getInventoryFromDatabase(int playerid)
@@ -88,11 +82,8 @@ public class GameController implements Observer
         if(thisPlayer.getId() != 0)
         {
             getInventoryFromDatabase(thisPlayer.getId());
+            wsController.register(thisPlayer.getName());
 
-            if(websocketCommunicator != null)
-            {
-               websocketCommunicator.register(thisPlayer.getName());
-            }
         }
         return thisPlayer.getName();
     }
@@ -105,7 +96,7 @@ public class GameController implements Observer
     public void subscribe(String player)
     {
         System.out.println("CLIENT SUBSCRIBE TO " + player);
-        websocketCommunicator.subscribe(player);
+        wsController.subscribe(player);
     }
 
     @Override
