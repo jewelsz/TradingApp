@@ -38,8 +38,21 @@ public class GameController implements Observer
         playerList.setAll(RESTController.getAllPlayers());
     }
 
+    public Boolean getPlayerReady() {
+        return playerReady;
+    }
+
+    public Boolean getOpponentReady() {
+        return opponentReady;
+    }
+
+    public Player getThisPlayer() {
+        return thisPlayer;
+    }
+
     public void addTradeItem(Item item)
     {
+        playerReady = false;
         playerTradeBag.add(item);
         inventory.remove(item);
         wsController.addTradeItem(item, thisPlayer.getName());
@@ -63,6 +76,18 @@ public class GameController implements Observer
                 tradeItems();
             }
         }
+    }
+
+    public void opponentAcceptTrade()
+    {
+        opponentReady = true;
+        if(opponentReady && playerReady)
+        {
+            tradeItems();
+        }
+
+        playerReady = false;
+        opponentReady = false;
     }
 
     private void tradeItems()
@@ -113,16 +138,7 @@ public class GameController implements Observer
 
                 case ACCEPT:
                     // Accept trade
-                    opponentReady = true;
-                    Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        System.out.println("OPPONENT READY TO TRADE");
-                        if(opponentReady && playerReady) tradeItems();
-                        playerReady = false;
-                        opponentReady = false;
-                    }
-                });
+                    opponentAcceptTrade();
                     break;
                 case TRADE:
                     Platform.runLater(new Runnable() {

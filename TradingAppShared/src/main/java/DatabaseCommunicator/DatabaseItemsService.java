@@ -96,24 +96,19 @@ public class DatabaseItemsService implements IDatabaseItemCommunication
     }
 
     @Override
-    public void updateItemsFromInventory(List<Item> items, int playerid)
+    public void updateItemsFromInventory(Item item, int playerid)
     {
         String sql = "UPDATE inventory SET playerid = ? WHERE id = ?";
 
-        for(Item i : items)
-        {
-            try (Connection conn = this.con.connect();
-                 PreparedStatement pstmt = conn.prepareStatement(sql))
-            {
-                pstmt.setInt(1, playerid);
-                pstmt.setInt(2, i.getInventoryId());
-                pstmt.executeUpdate();
-            }
-            catch (SQLException e)
-            {
-                System.out.println(e.getMessage());
-            }
+        try (Connection conn = this.con.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, playerid);
+            pstmt.setInt(2, item.getInventoryId());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
+
     }
 
     @Override

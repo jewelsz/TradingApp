@@ -62,29 +62,13 @@ public class DatabaseController
         return playersList;
     }
 
-    public boolean tradeCheck(List<Item> items, int playerid)
-    {
-        boolean check = true;
-        for(Item i : items)
-        {
-            if(itemCommunication.getPlayerIDFromInventory(i.getInventoryId()) != playerid)
-            {
-                check = false;
-            }
-        }
-
-        return check;
-    }
-
-    public void deleteFromInventory(ArrayList<Item> items, int playerid)
-    {
-        itemCommunication.removeItemsFromInventory(items);
-    }
-
     //Trade
     public void updateItemsFromInventory(List<Item> items, int playerid)
     {
-        itemCommunication.updateItemsFromInventory(items, playerid);
+        for(Item i : items)
+        {
+            itemCommunication.updateItemsFromInventory(i,playerid);
+        }
     }
 
 }
