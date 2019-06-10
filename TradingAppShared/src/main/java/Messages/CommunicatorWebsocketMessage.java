@@ -1,4 +1,6 @@
-package shared;
+package Messages;
+
+import Enums.MessageOperation;
 
 public class CommunicatorWebsocketMessage
 {

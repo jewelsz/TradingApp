@@ -2,8 +2,8 @@ package DatabaseCommunicator;
 
 import Models.Item;
 import Models.Player;
-import Models.PlayersList;
-import Models.ItemResponse;
+import Messages.PlayersList;
+import Messages.ItemResponse;
 
 import java.util.ArrayList;
 import java.util.List;

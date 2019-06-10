@@ -3,9 +3,9 @@ package Websockets.ServerWSProcessor;
 import DatabaseCommunicator.DatabaseController;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import shared.CommunicatorWebsocketMessage;
-import shared.MessageOperation;
-import shared.TradeItemMessage;
+import Messages.CommunicatorWebsocketMessage;
+import Enums.MessageOperation;
+import Messages.TradeItemMessage;
 
 import javax.websocket.Session;
 import java.util.ArrayList;

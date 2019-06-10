@@ -22,7 +22,7 @@ public class RESTClientCommunicatorController
 
     public List<Player> getAllPlayers()
     {
-        List<Player> players = communicator.getAllPlayers().getPlayer();
+        List<Player> players = communicator.getAllPlayers().getPlayers();
         return players;
     }
 

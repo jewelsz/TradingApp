@@ -2,8 +2,8 @@ package REST;
 
 import Models.Item;
 import Models.Player;
-import Models.PlayersList;
-import Models.ItemResponse;
+import Messages.PlayersList;
+import Messages.ItemResponse;
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;

@@ -1,6 +1,8 @@
 package RESTServer;
 
 import DatabaseCommunicator.DatabaseController;
+import Messages.ItemResponse;
+import Messages.PlayersList;
 import Models.*;
 import com.google.gson.Gson;
 

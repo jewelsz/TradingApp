@@ -1,4 +1,6 @@
-package Models;
+package Messages;
+
+import Models.Item;
 
 import java.util.List;
 

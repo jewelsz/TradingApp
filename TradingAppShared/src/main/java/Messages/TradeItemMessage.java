@@ -1,6 +1,7 @@
-package shared;
+package Messages;
 
 import Models.Item;
+import Enums.TradeOperation;
 
 import java.util.List;
 

@@ -4,10 +4,10 @@ import Controller.GameController;
 import Models.Item;
 import Websockets.ClientWebsocketsCommunicator;
 import com.google.gson.Gson;
-import shared.CommunicatorWebsocketMessage;
-import shared.MessageOperation;
-import shared.TradeItemMessage;
-import shared.TradeOperation;
+import Messages.CommunicatorWebsocketMessage;
+import Enums.MessageOperation;
+import Messages.TradeItemMessage;
+import Enums.TradeOperation;
 
 import java.util.List;
 

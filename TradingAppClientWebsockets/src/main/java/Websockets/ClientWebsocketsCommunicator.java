@@ -3,10 +3,10 @@ package Websockets;
 import Models.Item;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import shared.CommunicatorWebsocketMessage;
-import shared.MessageOperation;
-import shared.TradeItemMessage;
-import shared.TradeOperation;
+import Messages.CommunicatorWebsocketMessage;
+import Enums.MessageOperation;
+import Messages.TradeItemMessage;
+import Enums.TradeOperation;
 
 import javax.websocket.*;
 import java.io.IOException;

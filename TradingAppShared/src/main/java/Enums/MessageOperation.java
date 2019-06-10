@@ -1,4 +1,4 @@
-package shared;
+package Enums;
 
 public enum MessageOperation
 {
@@ -9,8 +9,6 @@ public enum MessageOperation
     REGISTERPROPERTY,
     UNREGISTERPROPERTY,
     SUBSCRIBETOPROPERTY,
-    UNSUBSCRIBEFROMPROPERTY,
-    GETINVENTORY,
-    UPDATEPROPERTY //Kan misschien wel gewoon weg
+    UNSUBSCRIBEFROMPROPERTY
 
 }

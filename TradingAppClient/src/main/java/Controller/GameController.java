@@ -7,7 +7,7 @@ import WebsocketsClient.WebsocketsMessageController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import shared.TradeItemMessage;
+import Messages.TradeItemMessage;
 
 import java.util.Observable;
 import java.util.Observer;
