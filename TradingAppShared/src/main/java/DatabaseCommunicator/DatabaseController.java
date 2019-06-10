@@ -10,11 +10,16 @@ import java.util.List;
 
 public class DatabaseController
 {
-    IDatabasePlayerCommunication playerCommunication = new DatabasePlayerCommunicator();
-    IDatabaseItemCommunication itemCommunication = new DatabaseItemsCommunicator();
+    private DatabaseConnection dbConnection;
+    private IDatabasePlayerCommunication playerCommunication;
+    private IDatabaseItemCommunication itemCommunication;
     private static DatabaseController instance;
 
-    public DatabaseController() {
+    public DatabaseController()
+    {
+        dbConnection = new DatabaseConnection();
+        playerCommunication = new DatabasePlayerService(dbConnection);
+        itemCommunication = new DatabaseItemsService(dbConnection);
     }
 
     //TODO put registration in database.
@@ -23,7 +28,7 @@ public class DatabaseController
     {
         if (instance == null)
         {
-            instance = new DatabaseController(); // zet hier de dingen die aangemaakt moeten worden in de constructor
+            instance = new DatabaseController();
         }
         return instance;
     }

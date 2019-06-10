@@ -30,7 +30,7 @@ public class StartWebsocketsServer
                     .configureContext(webSocketContext);
             System.out.println("Initialize javax.websocket layer");
 
-            serverContainer.addEndpoint(TradingServerEndpoint.class);
+            serverContainer.addEndpoint(WebsocketsServerEndpoint.class);
             System.out.println("Endpoint added");
 
             webSocketServer.start();

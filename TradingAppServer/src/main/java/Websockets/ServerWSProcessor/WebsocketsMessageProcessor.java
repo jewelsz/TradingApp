@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MessageProcessor
+public class WebsocketsMessageProcessor
 {
     private DatabaseController dbComm = new DatabaseController();
     // Map each property to list of sessions that are subscribed to that property

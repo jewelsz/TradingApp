@@ -1,6 +1,6 @@
 package Websockets;
 
-import Websockets.ServerWSProcessor.MessageProcessor;
+import Websockets.ServerWSProcessor.WebsocketsMessageProcessor;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ServerEndpoint(value = "/trading/")
-public class TradingServerEndpoint
+public class WebsocketsServerEndpoint
 {
     // All sessions
     private static final List<Session> sessions = new ArrayList<>();
-    MessageProcessor msgProcessor = new MessageProcessor();
+    WebsocketsMessageProcessor msgProcessor = new WebsocketsMessageProcessor();
 
 
     @OnOpen

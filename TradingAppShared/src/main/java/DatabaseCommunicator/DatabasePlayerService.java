@@ -10,9 +10,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabasePlayerCommunicator implements IDatabasePlayerCommunication
+public class DatabasePlayerService implements IDatabasePlayerCommunication
 {
-    DatabaseConnection con = new DatabaseConnection();
+    DatabaseConnection con;
+
+    public DatabasePlayerService(DatabaseConnection con) {
+        this.con = con;
+    }
 
     @Override
     public void insertPlayer(Player player) {
