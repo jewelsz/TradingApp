@@ -80,6 +80,7 @@ public class GameController implements Observer
 
     public void opponentAcceptTrade()
     {
+        System.out.println("OPPONENT TRADE READY");
         opponentReady = true;
         if(opponentReady && playerReady)
         {

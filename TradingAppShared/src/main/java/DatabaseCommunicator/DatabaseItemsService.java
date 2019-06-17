@@ -61,12 +61,8 @@ public class DatabaseItemsService implements IDatabaseItemCommunication
 
             // loop through the result set
             while (rs.next()) {
-                System.out.println(rs.getInt("id") +  "\t" +
-                        rs.getString("name")+  "\t" +
-                        rs.getString("id"));
-                Item item = new Item(rs.getInt("id"), rs.getString("name"), rs.getInt("id"));
+                Item item = new Item(rs.getInt("item.id"), rs.getString("item.name"), rs.getInt("inventory.id"));
                 dbitems.add(item);
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -101,12 +97,20 @@ public class DatabaseItemsService implements IDatabaseItemCommunication
         String sql = "UPDATE inventory SET playerid = ? WHERE id = ?";
 
         try (Connection conn = this.con.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql))
+        {
             pstmt.setInt(1, playerid);
             pstmt.setInt(2, item.getInventoryId());
+
             pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        }
+        catch (SQLException e)
+        {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
         }
 
     }

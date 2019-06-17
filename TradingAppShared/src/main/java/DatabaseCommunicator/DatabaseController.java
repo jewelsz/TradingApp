@@ -67,6 +67,7 @@ public class DatabaseController
     {
         for(Item i : items)
         {
+            System.out.println("LOOP ITEM: "+ i.getInventoryId() + "NAME: " + i.getItemName());
             itemCommunication.updateItemsFromInventory(i,playerid);
         }
     }

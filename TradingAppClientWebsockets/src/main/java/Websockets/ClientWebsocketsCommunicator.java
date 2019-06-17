@@ -76,65 +76,6 @@ public class ClientWebsocketsCommunicator extends Observable
         session = null;
     }
 
-    public void addTradeItem(Item item, String property) {
-        TradeItemMessage trademsg = new TradeItemMessage(item, TradeOperation.ADD);
-        String jsonMessage = gson.toJson(trademsg);
-        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
-        message.setOperation(MessageOperation.ADDTRADEITEM);
-        message.setProperty(property);
-        message.setContent(jsonMessage);
-        sendMessageToServer(message);
-    }
-
-    public void removeTradeItem(Item item, String property) {
-        TradeItemMessage trademsg = new TradeItemMessage(item, TradeOperation.REMOVE);
-        String jsonMessage = gson.toJson(trademsg);
-        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
-        message.setOperation(MessageOperation.REMOVETRADEITEM);
-        message.setProperty(property);
-        message.setContent(jsonMessage);
-        sendMessageToServer(message);
-    }
-
-    public void register(String property) {
-        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
-        message.setOperation(MessageOperation.REGISTERPROPERTY);
-        message.setProperty(property);
-        sendMessageToServer(message);
-    }
-
-    public void subscribe(String property) {
-        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
-        message.setOperation(MessageOperation.SUBSCRIBETOPROPERTY);
-        message.setProperty(property);
-        sendMessageToServer(message);
-    }
-
-    public void acceptTrade(String property)
-    {
-        TradeItemMessage trademsg = new TradeItemMessage(TradeOperation.ACCEPT);
-        String jsonMessage = gson.toJson(trademsg);
-        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
-        message.setOperation(MessageOperation.ACCEPTTRADE);
-        message.setProperty(property);
-        message.setContent(jsonMessage);
-        sendMessageToServer(message);
-    }
-
-
-    public void tradeItems(List<Item> tradeItems, int playerid, String property)
-    {
-        TradeItemMessage trademsg = new TradeItemMessage(tradeItems, playerid, TradeOperation.TRADE);
-        String jsonMessage = gson.toJson(trademsg);
-        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
-        message.setOperation(MessageOperation.TRADEITEMS);
-        message.setProperty(property);
-        message.setContent(jsonMessage);
-        sendMessageToServer(message);
-    }
-
-
-
     public void sendMessageToServer(CommunicatorWebsocketMessage message) {
         String jsonMessage = gson.toJson(message);
         System.out.println("Sending message to server: "+ message);

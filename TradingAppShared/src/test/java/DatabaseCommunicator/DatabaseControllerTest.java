@@ -47,12 +47,12 @@ public class DatabaseControllerTest
         assertNotNull(players.getPlayers());
     }
 
-    @Test
+   // @Test
     public void updateItemsFromInventory()
     {
         //Haal de items op van de speler met het id 4
-        ItemResponse inventory = dbController.getInventory(3);
-        ItemResponse inventoryOther = dbController.getInventory(4);
+        ItemResponse inventory = dbController.getInventory(4);
+        ItemResponse inventoryOther = dbController.getInventory(3);
         List<Item> items = inventory.getItems();
 
         int invSize = inventory.getItems().size();
