@@ -1,6 +1,6 @@
 package DatabaseCommunicator;
 
-import Models.Player;
+import Shared_Models.Player;
 
 import java.util.List;
 

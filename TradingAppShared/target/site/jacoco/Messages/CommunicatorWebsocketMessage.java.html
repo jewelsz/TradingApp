@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="nl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommunicatorWebsocketMessage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TradingAppShared</a> &gt; <a href="index.source.html" class="el_package">Messages</a> &gt; <span class="el_source">CommunicatorWebsocketMessage.java</span></div><h1>CommunicatorWebsocketMessage.java</h1><pre class="source lang-java linenums">package Messages;
+
+import Enums.MessageOperation;
+
+<span class="nc" id="L5">public class CommunicatorWebsocketMessage</span>
+{
+    // Operation that is requested at client side
+    private MessageOperation operation;
+
+    // Property
+    private String property;
+
+    // Content
+    private String content;
+
+    public MessageOperation getOperation() {
+<span class="nc" id="L17">        return operation;</span>
+    }
+
+    public void setOperation(MessageOperation operation) {
+<span class="nc" id="L21">        this.operation = operation;</span>
+<span class="nc" id="L22">    }</span>
+
+    public String getProperty() {
+<span class="nc" id="L25">        return property;</span>
+    }
+
+    public void setProperty(String property) {
+<span class="nc" id="L29">        this.property = property;</span>
+<span class="nc" id="L30">    }</span>
+
+    public String getContent() {
+<span class="nc" id="L33">        return content;</span>
+    }
+
+    public void setContent(String content) {
+<span class="nc" id="L37">        this.content = content;</span>
+<span class="nc" id="L38">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,24 +1,19 @@
 package Websockets;
 
-import Models.Item;
+import Messages.CommunicatorWebsocketMessage;
+import Messages.TradeItemMessage;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import Messages.CommunicatorWebsocketMessage;
-import Enums.MessageOperation;
-import Messages.TradeItemMessage;
-import Enums.TradeOperation;
 
 import javax.websocket.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.Observable;
 
 @ClientEndpoint
 public class ClientWebsocketsCommunicator extends Observable
 {
-
     private static ClientWebsocketsCommunicator instance = null;
     private static final String URI = "ws://localhost:8095/trading/"; // TODO Config file
     private Session session;

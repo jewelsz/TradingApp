@@ -1,7 +1,7 @@
 package REST;
 
-import Models.Item;
-import Models.Player;
+import Shared_Models.Item;
+import Shared_Models.Player;
 
 import java.util.List;
 

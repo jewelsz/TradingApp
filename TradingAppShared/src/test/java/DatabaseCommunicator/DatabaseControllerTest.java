@@ -2,13 +2,14 @@ package DatabaseCommunicator;
 
 import Messages.ItemResponse;
 import Messages.PlayersList;
-import Models.Item;
-import Models.Player;
-import org.junit.Test;
+import Shared_Models.Item;
+import Shared_Models.Player;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class DatabaseControllerTest
 {
@@ -47,7 +48,7 @@ public class DatabaseControllerTest
         assertNotNull(players.getPlayers());
     }
 
-   // @Test
+    @Test
     public void updateItemsFromInventory()
     {
         //Haal de items op van de speler met het id 4
@@ -60,8 +61,8 @@ public class DatabaseControllerTest
 
         int totalSize = invSize+invSizeOther;
         //Verplaats deze items naar het inventory van de speler met het id 5
-        dbController.updateItemsFromInventory(items,4);
-        int newSize = dbController.getInventory(4).getItems().size();
+        dbController.updateItemsFromInventory(items,3);
+        int newSize = dbController.getInventory(3).getItems().size();
         //invSize + invSizeOther is even groot als de nieuwe inventory size van speler met id 5
         assertEquals(totalSize, newSize);
     }

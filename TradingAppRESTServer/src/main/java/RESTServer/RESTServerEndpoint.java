@@ -3,7 +3,7 @@ package RESTServer;
 import DatabaseCommunicator.DatabaseController;
 import Messages.ItemResponse;
 import Messages.PlayersList;
-import Models.*;
+import Shared_Models.Player;
 import com.google.gson.Gson;
 
 import javax.ws.rs.*;

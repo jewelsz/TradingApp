@@ -1,0 +1,15 @@
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Enums\TradeOperation.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Messages\CommunicatorWebsocketMessage.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\DatabaseItemsService.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\DatabaseConnection.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Models\Item.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\IDatabaseItemCommunication.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Models\Player.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\DatabaseController.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\module-info.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Enums\MessageOperation.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\IDatabasePlayerCommunication.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Messages\PlayersList.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Messages\ItemResponse.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Messages\TradeItemMessage.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\DatabasePlayerService.java

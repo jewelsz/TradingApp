@@ -1,7 +1,6 @@
 package DatabaseCommunicator;
 
-import Models.Item;
-import Models.Player;
+import Shared_Models.Item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

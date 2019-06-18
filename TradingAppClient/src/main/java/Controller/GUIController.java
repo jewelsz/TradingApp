@@ -1,19 +1,15 @@
 package Controller;
 
-import Models.Item;
-import Models.Player;
-import javafx.application.Platform;
+import Shared_Models.Item;
+import Shared_Models.Player;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-import java.beans.PropertyChangeEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,7 +27,7 @@ public class GUIController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        gameController.inventory.addListener(new InvalidationListener()
+        gameController.inventoryController.playerBag.inventory.addListener(new InvalidationListener()
         {
             @Override
             public void invalidated(Observable observable) {
@@ -39,7 +35,7 @@ public class GUIController implements Initializable
             }
         });
 
-        gameController.playerTradeBag.addListener(new InvalidationListener()
+        gameController.inventoryController.tradeBag.inventory.addListener(new InvalidationListener()
         {
             @Override
             public void invalidated(Observable observable) {
@@ -47,13 +43,15 @@ public class GUIController implements Initializable
             }
         });
 
-        gameController.opponentTradeBag.addListener(new InvalidationListener()
+        gameController.inventoryController.opponentBag.inventory.addListener(new InvalidationListener()
         {
             @Override
             public void invalidated(Observable observable) {
                 System.out.println("Opponent bag initialized");
             }
         });
+
+        //playerlist
         gameController.playerList.addListener(new InvalidationListener()
         {
             @Override
@@ -62,9 +60,9 @@ public class GUIController implements Initializable
             }
         });
 
-        listInventory.setItems(gameController.inventory);
-        listTradeItems.setItems(gameController.playerTradeBag);
-        listOpponentItems.setItems(gameController.opponentTradeBag);
+        listInventory.setItems(gameController.inventoryController.playerBag.inventory);
+        listTradeItems.setItems(gameController.inventoryController.tradeBag.inventory);
+        listOpponentItems.setItems(gameController.inventoryController.opponentBag.inventory);
         listPlayers.setItems(gameController.playerList);
     }
 

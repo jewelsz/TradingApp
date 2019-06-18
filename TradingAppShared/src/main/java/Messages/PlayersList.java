@@ -1,6 +1,6 @@
 package Messages;
 
-import Models.Player;
+import Shared_Models.Player;
 
 import java.util.List;
 

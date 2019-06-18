@@ -1,7 +1,7 @@
 package WebsocketsClient;
 
 import Controller.GameController;
-import Models.Item;
+import Shared_Models.Item;
 import Websockets.ClientWebsocketsCommunicator;
 import com.google.gson.Gson;
 import Messages.CommunicatorWebsocketMessage;

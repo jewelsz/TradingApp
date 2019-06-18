@@ -1,11 +1,10 @@
 package DatabaseCommunicator;
 
-import Models.Item;
-import Models.Player;
+import Shared_Models.Item;
+import Shared_Models.Player;
 import Messages.PlayersList;
 import Messages.ItemResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseController

@@ -1,6 +1,6 @@
 package DatabaseCommunicator;
 
-import Models.Item;
+import Shared_Models.Item;
 
 import java.util.List;
 

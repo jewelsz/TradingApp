@@ -1,7 +1,7 @@
 package Controller;
 
-import Models.Item;
-import Models.Player;
+import Shared_Models.Item;
+import Shared_Models.Player;
 import REST.RESTClientCommunicatorController;
 import WebsocketsClient.WebsocketsMessageController;
 import javafx.application.Platform;
@@ -14,10 +14,9 @@ import java.util.Observer;
 
 public class GameController implements Observer
 {
-    public ObservableList<Item> inventory = FXCollections.observableArrayList();
-    public ObservableList<Item> playerTradeBag = FXCollections.observableArrayList();
-    public ObservableList<Item> opponentTradeBag = FXCollections.observableArrayList();
     public ObservableList<Player> playerList = FXCollections.observableArrayList();
+
+    public InventoryController inventoryController;
 
     private Boolean playerReady;
     private Boolean opponentReady;
@@ -35,15 +34,12 @@ public class GameController implements Observer
 
         RESTController = new RESTClientCommunicatorController();
         wsController = new WebsocketsMessageController(this);
+        inventoryController = new InventoryController();
         playerList.setAll(RESTController.getAllPlayers());
     }
 
     public Boolean getPlayerReady() {
         return playerReady;
-    }
-
-    public Boolean getOpponentReady() {
-        return opponentReady;
     }
 
     public Player getThisPlayer() {
@@ -53,40 +49,32 @@ public class GameController implements Observer
     public void addTradeItem(Item item)
     {
         playerReady = false;
-        playerTradeBag.add(item);
-        inventory.remove(item);
+        inventoryController.tradeBag.addItem(item);
+        inventoryController.playerBag.removeItem(item);
         wsController.addTradeItem(item, thisPlayer.getName());
     }
 
     public void removeTradeItem(Item item)
     {
-        playerTradeBag.remove(item);
-        inventory.add(item);
+        inventoryController.playerBag.removeItem(item);
+        inventoryController.playerBag.addItem(item);
         wsController.removeTradeItem(item, thisPlayer.getName());
     }
 
     public void acceptTrade()
     {
-        if(playerTradeBag.size() >= 1)
+        if(inventoryController.tradeReadyCount())
         {
             playerReady = true;
             wsController.acceptTrade(thisPlayer.getName());
-            if (playerReady && opponentReady)
-            {
-                tradeItems();
-            }
+            if (playerReady && opponentReady) tradeItems();
         }
     }
 
     public void opponentAcceptTrade()
     {
-        System.out.println("OPPONENT TRADE READY");
         opponentReady = true;
-        if(opponentReady && playerReady)
-        {
-            tradeItems();
-        }
-
+        if(opponentReady && playerReady){tradeItems();}
         playerReady = false;
         opponentReady = false;
     }
@@ -94,12 +82,13 @@ public class GameController implements Observer
     private void tradeItems()
     {
         System.out.println("TRADING ITEMS STARTED");
-        wsController.tradeItems(playerTradeBag, thisPlayer.getId(), thisPlayer.getName());
+        wsController.tradeItems(inventoryController.tradeItems(), thisPlayer.getId(), thisPlayer.getName());
     }
 
     public void getInventoryFromDatabase(int playerid)
     {
-        inventory.setAll(RESTController.getInventory(playerid));
+        inventoryController.playerBag.inventory.setAll(RESTController.getInventory(playerid));
+        inventoryController.playerBag.inventory.setAll(RESTController.getInventory(playerid));
     }
 
     public String login(String username, String password)
@@ -128,55 +117,32 @@ public class GameController implements Observer
     @Override
     public void update(Observable o, Object arg)
     {
-        System.out.println("Observable: " + o + "  object: "+ arg);
         TradeItemMessage message = (TradeItemMessage) arg;
-        System.out.println(message);
-        System.out.println(message.getOperation());
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
         if (null != message.getOperation())
         {
             switch (message.getOperation())
             {
-
                 case ACCEPT:
-                    // Accept trade
                     opponentAcceptTrade();
+                    System.out.println("Opponent accepted trade");
                     break;
                 case TRADE:
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            inventory.setAll(RESTController.getInventory(thisPlayer.getId()));
-                            playerTradeBag.clear();
-                            opponentTradeBag.clear();
-                        }
-                    });
+                    inventoryController.newTradeItems(RESTController.getInventory(thisPlayer.getId()));
+                    System.out.println("Opponent trade items");
                     break;
                 case ADD:
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            playerReady = false;
-                            opponentTradeBag.add(message.getItem());
-                        }
-                    });
+                    playerReady = false;
+                    inventoryController.opponentBag.addItem(message.getItem());
+                    System.out.println("Opponent added item");
                     break;
                 case REMOVE:
                     playerReady = false;
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            for(Item i : opponentTradeBag)
-                            {
-                                if(i.getId() == message.getItem().getId())
-                                {
-                                    opponentTradeBag.remove(i);
-                                }
-                            }
-                        }
-                    });
-
+                    inventoryController.opponentBag.inventory.remove(message.getItem());
                     System.out.println("Opponent removed item");
-                    System.out.println(opponentTradeBag);
                     break;
 
                 default:
@@ -184,5 +150,7 @@ public class GameController implements Observer
                     break;
             }
         }
+            }
+        });
     }
 }

@@ -1,7 +1,6 @@
-module TradingAppClientWebsockets
-{
-        requires javax.websocket.client.api;
-        requires gson;
-        requires TradingAppShared;
-        exports Websockets;
+module TradingAppClientWebsockets {
+    requires gson;
+    requires javax.websocket.client.api;
+    requires TradingAppShared;
+    exports Websockets;
 }
