@@ -4,5 +4,5 @@ module TradingAppShared
     exports Shared_Models;
     exports Enums;
     exports Messages;
-
+    exports DatabaseCommunicator;
 }

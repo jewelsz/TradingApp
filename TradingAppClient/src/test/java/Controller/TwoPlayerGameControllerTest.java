@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TwoPlayerGameControllerTest
 {
@@ -49,7 +48,7 @@ class TwoPlayerGameControllerTest
         henksGUIController = new GUIController();
         bobsGUIController = new GUIController();
 
-        PlatformImpl.startup(() -> {});
+        //PlatformImpl.startup(() -> {});
 
         henksGame = henksGUIController.gameController;
         bobsGame = bobsGUIController.gameController;
@@ -123,7 +122,7 @@ class TwoPlayerGameControllerTest
         System.out.println("TEST ITEM: "+bobsItems);
         henksGame.addTradeItem(henksGame.inventoryController.playerBag.inventory.get(1));
         TimeUnit.SECONDS.sleep(2);
-        assertEquals(1, henksGame.inventoryController.opponentBag.inventory.size());
+// --add-modules javafx.application        assertEquals(1, henksGame.inventoryController.opponentBag.inventory.size());
         assertEquals(1, henksGame.inventoryController.tradeBag.inventory.size());
         assertEquals(3, henksGame.inventoryController.playerBag.inventory.size());
         System.out.println("bobs opponent items: "+ bobsGame.inventoryController.opponentBag.inventory);

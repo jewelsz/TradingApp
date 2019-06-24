@@ -19,27 +19,27 @@ import java.util.Properties;
 
 
     private Properties getProperties() {
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (properties == null)</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (properties == null)</span>
         {
-<span class="nc" id="L24">            properties = new Properties();</span>
-<span class="nc" id="L25">            properties.setProperty(&quot;user&quot;, USERNAME);</span>
-<span class="nc" id="L26">            properties.setProperty(&quot;password&quot;, PASSWORD);</span>
-<span class="nc" id="L27">            properties.setProperty(&quot;MaxPooledStatements&quot;, MAX_POOL);</span>
+<span class="fc" id="L24">            properties = new Properties();</span>
+<span class="fc" id="L25">            properties.setProperty(&quot;user&quot;, USERNAME);</span>
+<span class="fc" id="L26">            properties.setProperty(&quot;password&quot;, PASSWORD);</span>
+<span class="fc" id="L27">            properties.setProperty(&quot;MaxPooledStatements&quot;, MAX_POOL);</span>
         }
-<span class="nc" id="L29">        return properties;</span>
+<span class="fc" id="L29">        return properties;</span>
     }
 
     public Connection connect() {
         try
         {
-<span class="nc" id="L35">            Class.forName(DATABASE_DRIVER);</span>
-<span class="nc" id="L36">            connection = DriverManager.getConnection(DATABASE_URL + DATABASE_NAME, getProperties());</span>
+<span class="fc" id="L35">            Class.forName(DATABASE_DRIVER);</span>
+<span class="fc" id="L36">            connection = DriverManager.getConnection(DATABASE_URL + DATABASE_NAME, getProperties());</span>
 <span class="nc" id="L37">        } catch (ClassNotFoundException | SQLException e)</span>
         {
             // Java 7+
 <span class="nc" id="L40">            e.printStackTrace();</span>
-<span class="nc" id="L41">        }</span>
-<span class="nc" id="L42">        return connection;</span>
+<span class="fc" id="L41">        }</span>
+<span class="fc" id="L42">        return connection;</span>
     }
 
     @Override
@@ -58,4 +58,4 @@ import java.util.Properties;
         }
 <span class="nc" id="L59">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

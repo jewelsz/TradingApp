@@ -2,9 +2,9 @@ C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Enums\TradeOper
 C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Messages\CommunicatorWebsocketMessage.java
 C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\DatabaseItemsService.java
 C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\DatabaseConnection.java
-C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Models\Item.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Shared_Models\Item.java
 C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\IDatabaseItemCommunication.java
-C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Models\Player.java
+C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Shared_Models\Player.java
 C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\DatabaseCommunicator\DatabaseController.java
 C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\module-info.java
 C:\Users\jowel\Desktop\TradingApp\TradingAppShared\src\main\java\Enums\MessageOperation.java

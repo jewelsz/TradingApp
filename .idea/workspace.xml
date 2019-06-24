@@ -2,11 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="359fcfb2-acdc-47ea-8bfd-620a980e3efa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/GameControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/TwoPlayerGameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/TwoPlayerGameControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/Websockets/ClientWebsocketsCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/Websockets/ClientWebsocketsCommunicator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/ServerWSProcessor/WebsocketsMessageProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/ServerWSProcessor/WebsocketsMessageProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TradingAppShared/src/test/java/DatabaseCommunicator/DatabaseControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/src/test/java/DatabaseCommunicator/DatabaseControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/jacoco.exec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClient/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClient/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClient/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/surefire-reports/Controller.GameControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/surefire-reports/TEST-Controller.GameControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/test-classes/Controller/GameControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClient/target/test-classes/Controller/TwoPlayerGameControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClientWebsockets/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClientWebsockets/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppClientWebsockets/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppClientWebsockets/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppRESTServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppRESTServer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/TradingAppShared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/TradingAppShared-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseConnection.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseConnection.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseConnection.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseConnection.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseController.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseItemsService.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseItemsService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseItemsService.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabaseItemsService.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabasePlayerService.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabasePlayerService.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabasePlayerService.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/DatabasePlayerService.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/DatabaseCommunicator/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/MessageOperation.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/MessageOperation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/MessageOperation.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/MessageOperation.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/TradeOperation.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/TradeOperation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/TradeOperation.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/TradeOperation.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Enums/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/CommunicatorWebsocketMessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/CommunicatorWebsocketMessage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/CommunicatorWebsocketMessage.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/CommunicatorWebsocketMessage.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/ItemResponse.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/ItemResponse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/ItemResponse.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/ItemResponse.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/PlayersList.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/PlayersList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/PlayersList.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/PlayersList.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/TradeItemMessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/TradeItemMessage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/TradeItemMessage.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/TradeItemMessage.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Messages/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Models/Item.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Models/Item.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Models/Player.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Models/Player.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Models/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/Models/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/jacoco.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/surefire-reports/DatabaseCommunicator.DatabaseControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/surefire-reports/DatabaseCommunicator.DatabaseControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TradingAppShared/target/surefire-reports/TEST-DatabaseCommunicator.DatabaseControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TradingAppShared/target/surefire-reports/TEST-DatabaseCommunicator.DatabaseControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/.sonar_lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,16 +96,16 @@
     <session id="-478254432">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="5" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="2" />
-          <entry key="project.open.time.6" value="8" />
+          <entry key="project.open.time.6" value="9" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="5" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -59,15 +114,15 @@
           <entry key="Groovy" value="2" />
           <entry key="HTML" value="1" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="508" />
-          <entry key="XML" value="51" />
+          <entry key="JAVA" value="517" />
+          <entry key="XML" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="29" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="27390" />
+          <entry key="JAVA" value="27482" />
           <entry key="PLAIN_TEXT" value="149" />
           <entry key="XML" value="341" />
         </counts>
@@ -76,11 +131,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/TwoPlayerGameControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
+            <state relative-caret-position="180">
+              <caret line="124" column="35" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,70 +144,51 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/WebsocketsServerEndpoint.java">
+        <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/Controller/StartTradingGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/ServerWSProcessor/WebsocketsMessageProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="62" column="90" lean-forward="true" selection-start-line="62" selection-start-column="90" selection-end-line="62" selection-end-column="90" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TradingAppShared/src/test/java/DatabaseCommunicator/DatabaseControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/GameControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/Interfaces/ITradeCommunicationService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
+            <state relative-caret-position="26">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/REST/RESTClientCommunicatorController.java">
+        <entry file="jar://C:/Program Files/Java/jdk-11/lib/src.zip!/java.base/java/lang/Runnable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+            <state relative-caret-position="248">
+              <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/WebsocketsClient/WebsocketsMessageController.java">
+        <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/module-info.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="71" lean-forward="true" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TradingAppClient/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TradingAppRESTServer/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-289">
+              <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -160,8 +196,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TradingAppClientWebsockets/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+            <state relative-caret-position="323">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TradingAppShared/src/main/java/module-info.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/module-info.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -169,8 +223,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/Websockets/ClientWebsocketsCommunicator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="323">
+              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,14 +237,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="package-info" />
         <option value="FxmlFile" />
         <option value="Enum" />
         <option value="JUnit4 Test Class" />
         <option value="module-info" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
+        <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -223,22 +277,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TradingAppShared/src/main/java/DatabaseCommunicator/DatabaseItemsCommunicator.java" />
-        <option value="$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/TradingServerEndpoint.java" />
-        <option value="$PROJECT_DIR$/TradingAppClient/src/main/java/Controller/WebsocketsMessageController.java" />
         <option value="$PROJECT_DIR$/TradingAppShared/src/main/java/Messages/CommunicatorWebsocketMessage.java" />
         <option value="$PROJECT_DIR$/TradingAppShared/src/main/java/Messages/ItemResponse.java" />
         <option value="$PROJECT_DIR$/TradingAppShared/src/main/java/Messages/PlayersList.java" />
         <option value="$PROJECT_DIR$/TradingAppShared/src/test/java/DatabaseCommunicator/DatabaseControllerTest.groovy" />
         <option value="$PROJECT_DIR$/TradingAppShared/src/test/java/DatabaseCommunicator/DatabaseConnectionTest.java" />
         <option value="$PROJECT_DIR$/Test Results - DatabaseControllerTest.html" />
-        <option value="$PROJECT_DIR$/TradingAppRESTServer/pom.xml" />
         <option value="$PROJECT_DIR$/TradingAppServer/pom.xml" />
         <option value="$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/module-info.java" />
-        <option value="$PROJECT_DIR$/TradingAppClientWebsockets/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/TradingAppShared/pom.xml" />
-        <option value="$PROJECT_DIR$/TradingAppShared/src/main/java/module-info.java" />
         <option value="$PROJECT_DIR$/TradingAppClient/src/main/java/Interfaces/IBag.java" />
         <option value="$PROJECT_DIR$/TradingAppClient/src/main/java/Interfaces/IPlayerBag.java" />
         <option value="$PROJECT_DIR$/TradingAppClient/src/main/java/Interfaces/ITradeBag.java" />
@@ -273,7 +321,13 @@
         <option value="$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/GameControllerTest.java" />
         <option value="$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/Websockets/ClientWebsocketsCommunicator.java" />
         <option value="$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/ServerWSProcessor/WebsocketsMessageProcessor.java" />
+        <option value="$PROJECT_DIR$/TradingAppRESTServer/pom.xml" />
+        <option value="$PROJECT_DIR$/TradingAppClientWebsockets/pom.xml" />
+        <option value="$PROJECT_DIR$/TradingAppShared/src/test/java/module.java" />
+        <option value="$PROJECT_DIR$/TradingAppShared/src/main/java/module-info.java" />
+        <option value="$PROJECT_DIR$/TradingAppClient/src/test/java/module.java" />
         <option value="$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/TwoPlayerGameControllerTest.java" />
+        <option value="$PROJECT_DIR$/TradingAppClient/src/main/java/module-info.java" />
       </list>
     </option>
   </component>
@@ -285,10 +339,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+    <option name="x" value="967" />
+    <option name="y" value="8" />
+    <option name="width" value="859" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -296,6 +350,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -374,6 +429,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="WebsocketsClient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TradingApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TradingApp" type="462c0819:PsiDirectoryNode" />
+              <item name="TradingAppClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TradingApp" type="b2602c69:ProjectViewProjectNode" />
@@ -530,40 +593,30 @@
               <item name="TradingApp" type="462c0819:PsiDirectoryNode" />
               <item name="TradingAppShared" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TradingApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="TradingApp" type="462c0819:PsiDirectoryNode" />
               <item name="TradingAppShared" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TradingApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TradingApp" type="462c0819:PsiDirectoryNode" />
-              <item name="TradingAppShared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="DatabaseCommunicator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561410107425" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561416411235" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="groovy.util.GroovyTestCase" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Huffman-Jowelle" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -602,7 +655,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RESTServerConnection">
+  <component name="RunManager" selected="JUnit.TwoPlayerGameControllerTest">
     <configuration name="RESTServerConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RESTServer.RESTServerConnection" />
       <module name="TradingAppRESTServer" />
@@ -679,9 +732,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TwoPlayerGameControllerTest" />
         <item itemvalue="Application.RESTServerConnection" />
         <item itemvalue="Application.StartWebsocketsServer" />
-        <item itemvalue="JUnit.TwoPlayerGameControllerTest" />
         <item itemvalue="Application.StartTradingGame" />
         <item itemvalue="JUnit.DatabaseControllerTest" />
       </list>
@@ -701,12 +754,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TwoPlayerGameControllerTest - 2019.06.24 at 21h 49m 23s.xml">
-      <configuration name="TwoPlayerGameControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TwoPlayerGameControllerTest - 2019.06.24 at 21h 52m 37s.xml">
-      <configuration name="TwoPlayerGameControllerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TwoPlayerGameControllerTest - 2019.06.24 at 21h 55m 11s.xml">
       <configuration name="TwoPlayerGameControllerTest" configurationId="JUnit" />
     </history-entry>
@@ -731,6 +778,12 @@
     <history-entry file="TwoPlayerGameControllerTest - 2019.06.24 at 22h 54m 05s.xml">
       <configuration name="TwoPlayerGameControllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TwoPlayerGameControllerTest - 2019.06.25 at 00h 27m 34s.xml">
+      <configuration name="TwoPlayerGameControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TwoPlayerGameControllerTest - 2019.06.25 at 00h 27m 57s.xml">
+      <configuration name="TwoPlayerGameControllerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -745,7 +798,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.2852349" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.28926176" />
       <window_info id="Structure" order="1" sideWeight="0.5010571" side_tool="true" weight="0.1785235" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -759,7 +812,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.84966445" weight="0.12624113" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.84966445" weight="0.38723403" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.15033557" side_tool="true" weight="0.24397163" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49798658" weight="0.32765958" />
@@ -778,62 +831,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/main/java/DatabaseCommunicator/DatabasePlayerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-util/9.4.15.v20190215/jetty-util-9.4.15.v20190215-sources.jar!/org/eclipse/jetty/util/log/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="300" selection-start-line="300" selection-end-line="300" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/websocket/javax-websocket-client-impl/9.4.15.v20190215/javax-websocket-client-impl-9.4.15.v20190215-sources.jar!/org/eclipse/jetty/websocket/jsr356/AbstractJsrRemote.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/main/java/Messages/CommunicatorWebsocketMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppRESTServer/src/main/java/RESTServer/RESTServerConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.2.0/junit-platform-commons-1.2.0-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7446">
-          <caret line="515" selection-start-line="515" selection-end-line="515" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/main/java/Shared_Models/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5-sources.jar!/com/google/gson/Gson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="614" selection-start-line="614" selection-end-line="614" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/websocket/javax-websocket-client-impl/9.4.15.v20190215/javax-websocket-client-impl-9.4.15.v20190215-sources.jar!/org/eclipse/jetty/websocket/jsr356/JsrSession.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -975,32 +972,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/Controller/StartTradingGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding>
-            <element signature="e#513#514#0" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/resources/FXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TradingAppShared/src/main/java/DatabaseCommunicator/DatabaseItemsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
           <caret line="93" column="59" selection-start-line="93" selection-start-column="59" selection-end-line="93" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppClient/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="73" column="131" selection-start-line="73" selection-start-column="131" selection-end-line="73" selection-end-column="131" />
         </state>
       </provider>
     </entry>
@@ -1089,9 +1068,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/WebsocketsServerEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/ServerWSProcessor/WebsocketsMessageProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="62" column="90" selection-start-line="62" selection-start-column="90" selection-end-line="62" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/test/java/DatabaseCommunicator/DatabaseControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/GameControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/Interfaces/ITradeCommunicationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="153">
           <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1101,73 +1108,116 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/REST/RESTClientCommunicatorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
+        <state relative-caret-position="680">
           <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/WebsocketsClient/WebsocketsMessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="71" lean-forward="true" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+        <state relative-caret-position="68">
+          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppClientWebsockets/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/test/java/DatabaseCommunicator/DatabaseControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/GameControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/Websockets/ClientWebsocketsCommunicator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        <state relative-caret-position="323">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/WebsocketsServerEndpoint.java">
+    <entry file="file://$PROJECT_DIR$/TradingAppRESTServer/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        <state relative-caret-position="-289">
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TradingAppServer/src/main/java/Websockets/ServerWSProcessor/WebsocketsMessageProcessor.java">
+    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/test/java/package-info.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppClientWebsockets/src/main/java/module-info.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="62" column="90" lean-forward="true" selection-start-line="62" selection-start-column="90" selection-end-line="62" selection-end-column="90" />
+        <state>
+          <caret selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/test/java/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppClientWebsockets/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppShared/src/main/java/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11/lib/src.zip!/java.base/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppClient/src/test/java/module.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TradingAppClient/src/test/java/Controller/TwoPlayerGameControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
+        <state relative-caret-position="180">
+          <caret line="124" column="35" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/Controller/StartTradingGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppClient/src/main/java/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TradingAppClient/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
         </state>
       </provider>
     </entry>

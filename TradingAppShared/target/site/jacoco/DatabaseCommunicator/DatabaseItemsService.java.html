@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="nl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DatabaseItemsService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TradingAppShared</a> &gt; <a href="index.source.html" class="el_package">DatabaseCommunicator</a> &gt; <span class="el_source">DatabaseItemsService.java</span></div><h1>DatabaseItemsService.java</h1><pre class="source lang-java linenums">package DatabaseCommunicator;
 
-import Models.Item;
-import Models.Player;
+import Shared_Models.Item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,131 +13,146 @@ public class DatabaseItemsService implements IDatabaseItemCommunication
 {
     DatabaseConnection con;
 
-<span class="fc" id="L17">    public DatabaseItemsService(DatabaseConnection con) {</span>
-<span class="fc" id="L18">        this.con = con;</span>
-<span class="fc" id="L19">    }</span>
+<span class="fc" id="L16">    public DatabaseItemsService(DatabaseConnection con) {</span>
+<span class="fc" id="L17">        this.con = con;</span>
+<span class="fc" id="L18">    }</span>
 
     @Override
     public Item getItem(int id) {
-<span class="nc" id="L23">        String sql = &quot;SELECT * FROM `item` WHERE id = ? &quot;;</span>
+<span class="nc" id="L22">        String sql = &quot;SELECT * FROM `item` WHERE id = ? &quot;;</span>
 
-<span class="nc" id="L25">        Item dbitem = new Item();</span>
+<span class="nc" id="L24">        Item dbitem = new Item();</span>
 
-<span class="nc" id="L27">        try (Connection conn = this.con.connect();</span>
-<span class="nc" id="L28">             PreparedStatement pstmt = conn.prepareStatement(sql)) {</span>
-<span class="nc" id="L29">            pstmt.setInt(1, id);</span>
-<span class="nc" id="L30">            ResultSet rs    = pstmt.executeQuery();</span>
+<span class="nc" id="L26">        try (Connection conn = this.con.connect();</span>
+<span class="nc" id="L27">             PreparedStatement pstmt = conn.prepareStatement(sql)) {</span>
+<span class="nc" id="L28">            pstmt.setInt(1, id);</span>
+<span class="nc" id="L29">            ResultSet rs    = pstmt.executeQuery();</span>
 
             // loop through the result set
-<span class="nc bnc" id="L33" title="All 2 branches missed.">            while (rs.next()) {</span>
-<span class="nc" id="L34">                System.out.println(rs.getInt(&quot;id&quot;) +  &quot;\t&quot; +</span>
-<span class="nc" id="L35">                        rs.getString(&quot;name&quot;));</span>
-<span class="nc" id="L36">                dbitem.setId(rs.getInt(&quot;id&quot;));</span>
-<span class="nc" id="L37">                dbitem.setItemName(rs.getString(&quot;name&quot;));</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L33">                System.out.println(rs.getInt(&quot;id&quot;) +  &quot;\t&quot; +</span>
+<span class="nc" id="L34">                        rs.getString(&quot;name&quot;));</span>
+<span class="nc" id="L35">                dbitem.setId(rs.getInt(&quot;id&quot;));</span>
+<span class="nc" id="L36">                dbitem.setItemName(rs.getString(&quot;name&quot;));</span>
 
             }
-<span class="nc" id="L40">        } catch (SQLException e) {</span>
-<span class="nc" id="L41">            System.out.println(e.getMessage());</span>
-<span class="nc" id="L42">        }</span>
+<span class="nc" id="L39">        } catch (SQLException e) {</span>
+<span class="nc" id="L40">            System.out.println(e.getMessage());</span>
+<span class="nc" id="L41">        }</span>
 
-<span class="nc" id="L44">        return dbitem;</span>
+<span class="nc" id="L43">        return dbitem;</span>
     }
 
     @Override
     public List&lt;Item&gt; getInventory(int playerid)
     {
-<span class="nc" id="L50">        String sql = &quot;SELECT item.id, item.name, inventory.id\n&quot; +</span>
+<span class="fc" id="L49">        String sql = &quot;SELECT item.id, item.name, inventory.id\n&quot; +</span>
                 &quot;FROM item, inventory\n&quot; +
                 &quot;WHERE item.id = inventory.itemid \n&quot; +
                 &quot;AND inventory.playerid = ?&quot;;
 
-<span class="nc" id="L55">        List&lt;Item&gt; dbitems = new ArrayList&lt;Item&gt;();</span>
+<span class="fc" id="L54">        List&lt;Item&gt; dbitems = new ArrayList&lt;Item&gt;();</span>
 
-<span class="nc" id="L57">        try (Connection conn = this.con.connect();</span>
-<span class="nc" id="L58">             PreparedStatement pstmt = conn.prepareStatement(sql)) {</span>
-<span class="nc" id="L59">            pstmt.setInt(1, playerid);</span>
-<span class="nc" id="L60">            ResultSet rs    = pstmt.executeQuery();</span>
+<span class="fc" id="L56">        try (Connection conn = this.con.connect();</span>
+<span class="fc" id="L57">             PreparedStatement pstmt = conn.prepareStatement(sql)) {</span>
+<span class="fc" id="L58">            pstmt.setInt(1, playerid);</span>
+<span class="fc" id="L59">            ResultSet rs    = pstmt.executeQuery();</span>
 
             // loop through the result set
-<span class="nc bnc" id="L63" title="All 2 branches missed.">            while (rs.next()) {</span>
-<span class="nc" id="L64">                Item item = new Item(rs.getInt(&quot;item.id&quot;), rs.getString(&quot;item.name&quot;), rs.getInt(&quot;inventory.id&quot;));</span>
-<span class="nc" id="L65">                dbitems.add(item);</span>
-<span class="nc" id="L66">            }</span>
-<span class="nc" id="L67">        } catch (SQLException e) {</span>
-<span class="nc" id="L68">            System.out.println(e.getMessage());</span>
-<span class="nc" id="L69">        }</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L63">                Item item = new Item(rs.getInt(&quot;item.id&quot;), rs.getString(&quot;item.name&quot;), rs.getInt(&quot;inventory.id&quot;));</span>
+<span class="fc" id="L64">                dbitems.add(item);</span>
+<span class="fc" id="L65">            }</span>
+<span class="nc" id="L66">        } catch (SQLException e) {</span>
+<span class="nc" id="L67">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L68">        }</span>
 
-<span class="nc" id="L71">        return dbitems;</span>
+<span class="fc" id="L70">        return dbitems;</span>
     }
 
     @Override
     public void removeItemsFromInventory(List&lt;Item&gt; items) 
     {
-<span class="nc" id="L77">        String sql = &quot;DELETE FROM inventory WHERE id = ?&quot;;</span>
+<span class="nc" id="L76">        String sql = &quot;DELETE FROM inventory WHERE id = ?&quot;;</span>
 
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        for(Item i : items)</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        for(Item i : items)</span>
         {
-<span class="nc" id="L81">            try (Connection conn = this.con.connect();</span>
-<span class="nc" id="L82">                 PreparedStatement pstmt = conn.prepareStatement(sql))</span>
+<span class="nc" id="L80">            try (Connection conn = this.con.connect();</span>
+<span class="nc" id="L81">                 PreparedStatement pstmt = conn.prepareStatement(sql))</span>
             {
-<span class="nc" id="L84">                pstmt.setInt(1, i.getInventoryId());</span>
-<span class="nc" id="L85">                pstmt.executeUpdate();</span>
+<span class="nc" id="L83">                pstmt.setInt(1, i.getInventoryId());</span>
+<span class="nc" id="L84">                pstmt.executeUpdate();</span>
             }
-<span class="nc" id="L87">            catch (SQLException e)</span>
+<span class="nc" id="L86">            catch (SQLException e)</span>
             {
-<span class="nc" id="L89">                System.out.println(e.getMessage());</span>
-<span class="nc" id="L90">            }</span>
-<span class="nc" id="L91">        }</span>
-<span class="nc" id="L92">    }</span>
+<span class="nc" id="L88">                System.out.println(e.getMessage());</span>
+<span class="nc" id="L89">            }</span>
+<span class="nc" id="L90">        }</span>
+<span class="nc" id="L91">    }</span>
 
     @Override
     public void updateItemsFromInventory(Item item, int playerid)
     {
-<span class="nc" id="L97">        String sql = &quot;UPDATE inventory SET playerid = ? WHERE id = ?&quot;;</span>
+<span class="fc" id="L96">        String sql = &quot;UPDATE inventory SET playerid = ? WHERE id = ?&quot;;</span>
 
-<span class="nc" id="L99">        try (Connection conn = this.con.connect();</span>
-<span class="nc" id="L100">             PreparedStatement pstmt = conn.prepareStatement(sql))</span>
+<span class="fc" id="L98">        try (Connection conn = this.con.connect();</span>
+<span class="fc" id="L99">             PreparedStatement pstmt = conn.prepareStatement(sql))</span>
         {
-<span class="nc" id="L102">            pstmt.setInt(1, playerid);</span>
-<span class="nc" id="L103">            pstmt.setInt(2, item.getInventoryId());</span>
+<span class="fc" id="L101">            pstmt.setInt(1, playerid);</span>
+<span class="fc" id="L102">            pstmt.setInt(2, item.getInventoryId());</span>
 
-<span class="nc" id="L105">            pstmt.executeUpdate();</span>
+<span class="fc" id="L104">            pstmt.executeUpdate();</span>
         }
-<span class="nc" id="L107">        catch (SQLException e)</span>
+<span class="nc" id="L106">        catch (SQLException e)</span>
         {
-<span class="nc" id="L109">            System.err.format(&quot;SQL State: %s\n%s&quot;, e.getSQLState(), e.getMessage());</span>
+<span class="nc" id="L108">            System.err.format(&quot;SQL State: %s\n%s&quot;, e.getSQLState(), e.getMessage());</span>
         }
-<span class="nc" id="L111">        catch (Exception e)</span>
+<span class="nc" id="L110">        catch (Exception e)</span>
         {
-<span class="nc" id="L113">            e.printStackTrace();</span>
-<span class="nc" id="L114">        }</span>
+<span class="nc" id="L112">            e.printStackTrace();</span>
+<span class="pc" id="L113">        }</span>
 
-<span class="nc" id="L116">    }</span>
+<span class="fc" id="L115">    }</span>
 
     @Override
     public int getPlayerIDFromInventory(int inventoryid)
     {
-<span class="nc" id="L121">        String sql = &quot;SELECT playerid FROM inventory WHERE id = ?&quot;;</span>
+<span class="nc" id="L120">        String sql = &quot;SELECT playerid FROM inventory WHERE id = ?&quot;;</span>
 
-<span class="nc" id="L123">        int playerid = 0;</span>
+<span class="nc" id="L122">        int playerid = 0;</span>
 
-<span class="nc" id="L125">        try (Connection conn = this.con.connect();</span>
-<span class="nc" id="L126">             PreparedStatement pstmt = conn.prepareStatement(sql)) {</span>
-<span class="nc" id="L127">            pstmt.setInt(1, inventoryid);</span>
-<span class="nc" id="L128">            ResultSet rs    = pstmt.executeQuery();</span>
+<span class="nc" id="L124">        try (Connection conn = this.con.connect();</span>
+<span class="nc" id="L125">             PreparedStatement pstmt = conn.prepareStatement(sql)) {</span>
+<span class="nc" id="L126">            pstmt.setInt(1, inventoryid);</span>
+<span class="nc" id="L127">            ResultSet rs    = pstmt.executeQuery();</span>
 
             // loop through the result set
-<span class="nc bnc" id="L131" title="All 2 branches missed.">            while (rs.next()) {</span>
-<span class="nc" id="L132">                System.out.println(rs.getInt(&quot;playerid&quot;));</span>
-<span class="nc" id="L133">                playerid = (rs.getInt(&quot;playerid&quot;));</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">            while (rs.next()) {</span>
+<span class="nc" id="L131">                System.out.println(rs.getInt(&quot;playerid&quot;));</span>
+<span class="nc" id="L132">                playerid = (rs.getInt(&quot;playerid&quot;));</span>
 
             }
-<span class="nc" id="L136">        } catch (SQLException e) {</span>
-<span class="nc" id="L137">            System.out.println(e.getMessage());</span>
-<span class="nc" id="L138">        }</span>
+<span class="nc" id="L135">        } catch (SQLException e) {</span>
+<span class="nc" id="L136">            System.out.println(e.getMessage());</span>
+<span class="nc" id="L137">        }</span>
 
-<span class="nc" id="L140">        return playerid;</span>
+<span class="nc" id="L139">        return playerid;</span>
     }
 
+    @Override
+    public void addItemToPlayer(int itemid, int playerid)
+    {
+<span class="nc" id="L145">        String sql = &quot;INSERT INTO inventory(playerid, itemid) VALUES(?,?)&quot;;</span>
+
+<span class="nc" id="L147">        try (Connection conn = this.con.connect();</span>
+<span class="nc" id="L148">             PreparedStatement pstmt = conn.prepareStatement(sql)) {</span>
+<span class="nc" id="L149">            pstmt.setInt(1, playerid);</span>
+<span class="nc" id="L150">            pstmt.setInt(1, itemid);</span>
+<span class="nc" id="L151">            pstmt.executeUpdate();</span>
+<span class="nc" id="L152">        } catch (SQLException e) {</span>
+<span class="nc" id="L153">            System.out.println(e.getMessage());</span>
+<span class="nc" id="L154">        }</span>
+<span class="nc" id="L155">    }</span>
+
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

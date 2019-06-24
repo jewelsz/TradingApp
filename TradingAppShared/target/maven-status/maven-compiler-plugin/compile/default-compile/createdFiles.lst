@@ -1,15 +1,15 @@
-Models\Player.class
 DatabaseCommunicator\IDatabasePlayerCommunication.class
 Enums\MessageOperation.class
 Messages\PlayersList.class
 DatabaseCommunicator\DatabaseConnection.class
 Messages\ItemResponse.class
-Models\Item.class
 DatabaseCommunicator\DatabaseController.class
 Enums\TradeOperation.class
 DatabaseCommunicator\DatabasePlayerService.class
 DatabaseCommunicator\DatabaseItemsService.class
 Messages\TradeItemMessage.class
+Shared_Models\Player.class
 module-info.class
+Shared_Models\Item.class
 DatabaseCommunicator\IDatabaseItemCommunication.class
 Messages\CommunicatorWebsocketMessage.class
