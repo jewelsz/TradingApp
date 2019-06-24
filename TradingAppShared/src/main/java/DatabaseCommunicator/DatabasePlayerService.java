@@ -47,9 +47,6 @@ public class DatabasePlayerService implements IDatabasePlayerCommunication
 
             // loop through the result set
             while (rs.next()) {
-                System.out.println(rs.getInt("id") +  "\t" +
-                        rs.getString("name") + "\t" +
-                        rs.getString("password"));
                 dbplayer.setId(rs.getInt("id"));
                 dbplayer.setName(rs.getString("name"));
                 dbplayer.setPassword(rs.getString("password"));
@@ -75,9 +72,6 @@ public class DatabasePlayerService implements IDatabasePlayerCommunication
 
             // loop through the result set
             while (rs.next()) {
-                System.out.println(rs.getInt("id") +  "\t" +
-                        rs.getString("name")+  "\t" +
-                        rs.getString("password"));
                 Player player = new Player(rs.getInt("id"), rs.getString("name"), rs.getString("password"));
                 dbplayers.add(player);
 
@@ -87,5 +81,20 @@ public class DatabasePlayerService implements IDatabasePlayerCommunication
         }
 
         return dbplayers;
+    }
+
+    @Override
+    public void removePlayer(String name)
+    {
+        String sql = "DELETE FROM player WHERE name = ?";
+
+        try (Connection conn = this.con.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Deleted DB succesfully");
     }
 }

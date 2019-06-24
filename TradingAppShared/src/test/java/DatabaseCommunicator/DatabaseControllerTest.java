@@ -51,19 +51,47 @@ public class DatabaseControllerTest
     @Test
     public void updateItemsFromInventory()
     {
-        //Haal de items op van de speler met het id 4
-        ItemResponse inventory = dbController.getInventory(4);
-        ItemResponse inventoryOther = dbController.getInventory(3);
+        //Haal de items op van de spelers met het id 106 en 107
+        ItemResponse inventory = dbController.getInventory(106);
+        ItemResponse inventoryOther = dbController.getInventory(107);
         List<Item> items = inventory.getItems();
+        List<Item> itemsOther = inventoryOther.getItems();
+
+        System.out.println("INVENTORY: "+items);
+        System.out.println("INVENTORY OTHER: "+itemsOther);
 
         int invSize = inventory.getItems().size();
         int invSizeOther = inventoryOther.getItems().size();
 
         int totalSize = invSize+invSizeOther;
         //Verplaats deze items naar het inventory van de speler met het id 5
-        dbController.updateItemsFromInventory(items,3);
-        int newSize = dbController.getInventory(3).getItems().size();
+        dbController.updateItemsFromInventory(items,107);
+        dbController.updateItemsFromInventory(itemsOther,106);
+
+        List<Item> newItems = dbController.getInventory(106).getItems();
+        List<Item> newOtherItems = dbController.getInventory(107).getItems();
+
+        System.out.println("INVENTORY: "+ dbController.getInventory(106));
+        System.out.println("INVENTORY OTHER: "+ dbController.getInventory(107));
+        int newSize = dbController.getInventory(4).getItems().size();
         //invSize + invSizeOther is even groot als de nieuwe inventory size van speler met id 5
-        assertEquals(totalSize, newSize);
+
+        //itemTradeCheck moet 4 zijn
+        int itemTradeCheck = 0;
+        for(Item i : items)
+        {
+            for(Item b : newOtherItems)
+            {
+                if(i.getInventoryId() == b.getInventoryId())
+                {
+                    itemTradeCheck++;
+                }
+            }
+        }
+        //De count moet 4 zijn
+        assertEquals(4, itemTradeCheck);
+
+        //De size moet 4 zijn
+        assertEquals(4, newOtherItems.size());
     }
 }

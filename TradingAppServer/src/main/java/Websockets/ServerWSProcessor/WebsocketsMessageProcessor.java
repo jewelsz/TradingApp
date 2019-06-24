@@ -1,6 +1,7 @@
 package Websockets.ServerWSProcessor;
 
 import DatabaseCommunicator.DatabaseController;
+import Enums.TradeOperation;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import Messages.CommunicatorWebsocketMessage;
@@ -18,6 +19,11 @@ public class WebsocketsMessageProcessor
     private DatabaseController dbComm = new DatabaseController();
     // Map each property to list of sessions that are subscribed to that property
     private static final Map<String,List<Session>> propertySessions = new HashMap<>();
+
+    public WebsocketsMessageProcessor()
+    {
+        dbComm = new DatabaseController();
+    }
 
     //Gson
     Gson gson = new Gson();
@@ -50,6 +56,11 @@ public class WebsocketsMessageProcessor
                     {
                         propertySessions.put(property, new ArrayList<Session>());
                         System.out.println("Register "+ property + "Session: "+ propertySessions);
+                        System.out.println("SERVER WS AANTAL SESSION: "+ propertySessions.size());
+                    }
+                    else
+                    {
+                        System.out.println("SERVER WS PROPERTY IS NULL - CAN'T REGISTER");
                     }
                     break;
                 case UNREGISTERPROPERTY:
@@ -61,6 +72,7 @@ public class WebsocketsMessageProcessor
                     if (propertySessions.get(property) != null)
                     {
                         propertySessions.get(property).add(session);
+                        dbComm.setSessionTotal(propertySessions.get(property).size());
                     }
                     break;
                 case UNSUBSCRIBEFROMPROPERTY:
@@ -74,12 +86,14 @@ public class WebsocketsMessageProcessor
                     // Accept trade
                     if (propertySessions.get(property) != null)
                     {
+                        System.out.println("SERVER: ACCEPT TRADE");
                         acceptTrade(property, jsonMessage);
                     }
                     break;
                 case TRADEITEMS:
                     if (propertySessions.get(property) != null)
                     {
+                        System.out.println("SERVER: TRADE ITEMS");
                         tradeItems(property, wbMessage, jsonMessage);
                     }
                     break;
@@ -94,6 +108,13 @@ public class WebsocketsMessageProcessor
                     if (propertySessions.get(property) != null)
                     {
                         sendItemMessage(property, jsonMessage);
+                    }
+                    break;
+                case GETSESSION:
+
+                    if(propertySessions.get(property) != null)
+                    {
+                        returnSession(property, session);
                     }
                     break;
                 default:
@@ -136,8 +157,8 @@ public class WebsocketsMessageProcessor
         for (Session sess : propertySessions.get(property))
         {
             // Use asynchronous communication
-            System.out.println("\t\t >> Client associated with server side session ID: " + sess.getId());
             sess.getAsyncRemote().sendText(jsonMessage);
+            System.out.println("\t\t >> Client associated with server side session ID: " + sess.getId());
         }
         System.out.println("[WebSocket end sending message to subscribers] " );
     }
@@ -149,8 +170,30 @@ public class WebsocketsMessageProcessor
             // Use asynchronous communication
             System.out.println("\t\t >> Client associated with server side session ID: " + sess.getId());
             sess.getAsyncRemote().sendText(jsonMessage);
-            System.out.println(sess.getAsyncRemote());
         }
         System.out.println("[WebSocket end sending message to subscribers]");
+    }
+
+    private void returnSession(String property, Session session)
+    {
+        //List<Session> sessions = propertySessions.get(property);
+
+        //Aantal sessions van de speler met deze property naam
+        int totalSessions = propertySessions.get(property).size();
+        System.out.println("SERVER WEBSOCKETS SIZE: "+ totalSessions);
+
+        TradeItemMessage sessionMessage = new TradeItemMessage(totalSessions, TradeOperation.SESSIONS);
+        String jsonSessionMessage = gson.toJson(sessionMessage);
+        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
+        message.setOperation(MessageOperation.GETSESSION);
+        message.setProperty(property);
+        message.setContent(jsonSessionMessage);
+        String jsonMessage = gson.toJson(message);
+        System.out.println("SENDING MESSAGE BACK");
+        for(Session sess : propertySessions.get(session))
+        {
+            sess.getAsyncRemote().sendText(jsonMessage);
+        }
+        session.getAsyncRemote().sendText(jsonMessage);
     }
 }

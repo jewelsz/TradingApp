@@ -10,6 +10,7 @@ public class TradeBag extends Bag implements ITradeBag
     @Override
     public List<Item> trade() {
 
-        return super.inventory;
+        List<Item> tradeItems = super.inventory;
+        return tradeItems;
     }
 }

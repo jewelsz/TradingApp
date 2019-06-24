@@ -14,14 +14,16 @@ public class DatabaseController
     private IDatabaseItemCommunication itemCommunication;
     private static DatabaseController instance;
 
+    public int sessionTotal;
+
     public DatabaseController()
     {
         dbConnection = new DatabaseConnection();
         playerCommunication = new DatabasePlayerService(dbConnection);
         itemCommunication = new DatabaseItemsService(dbConnection);
-    }
 
-    //TODO put registration in database.
+        sessionTotal = 0;
+    }
 
     public static DatabaseController getInstance()
     {
@@ -34,7 +36,6 @@ public class DatabaseController
 
     public void addRegistration(Player player)
     {
-        //TODO add to database.
         System.out.println("Put in db");
         playerCommunication.insertPlayer(player);
     }
@@ -66,9 +67,26 @@ public class DatabaseController
     {
         for(Item i : items)
         {
-            System.out.println("LOOP ITEM: "+ i.getInventoryId() + "NAME: " + i.getItemName());
+            System.out.println("Trade - Player id: "+ playerid +" item: "+ i.getItemName() );
             itemCommunication.updateItemsFromInventory(i,playerid);
         }
     }
 
+    public void addItemToPlayer(int itemid, int playerid)
+    {
+        itemCommunication.addItemToPlayer(itemid, playerid);
+    }
+
+    public void removePlayer(String name)
+    {
+        playerCommunication.removePlayer(name);
+    }
+
+    public int getSessionTotal() {
+        return sessionTotal;
+    }
+
+    public void setSessionTotal(int sessionTotal) {
+        this.sessionTotal = sessionTotal;
+    }
 }

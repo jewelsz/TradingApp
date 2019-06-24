@@ -12,6 +12,11 @@ public class TradeItemMessage
     private int playerid;
     private TradeOperation operation;
 
+    public TradeItemMessage(int total, TradeOperation opetration) {
+        playerid = total;
+        this.operation = opetration;
+    }
+
     public TradeItemMessage(Item item, TradeOperation operation) {
         this.item = item;
         this.operation = operation;

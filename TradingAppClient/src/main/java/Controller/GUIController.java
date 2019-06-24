@@ -21,7 +21,7 @@ public class GUIController implements Initializable
     public ListView<Player> listPlayers;
     public Label lblName, lblError, lblTradeReady, lblOpponentName;
 
-    static GameController gameController;
+    public GameController gameController;
 
 
     @Override
@@ -109,6 +109,10 @@ public class GUIController implements Initializable
                 tbPassword.clear();
             }
         }
+    }
+
+    public GameController getGameController() {
+        return gameController;
     }
 
     public void btnSelectTrader()

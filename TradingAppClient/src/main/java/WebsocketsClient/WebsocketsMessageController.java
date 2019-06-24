@@ -74,12 +74,22 @@ public class WebsocketsMessageController
 
     public void tradeItems(List<Item> tradeItems, int playerid, String property)
     {
+        System.out.println("CREATING TRADE MESSAGE - Items: " +tradeItems);
         TradeItemMessage trademsg = new TradeItemMessage(tradeItems, playerid, TradeOperation.TRADE);
         String jsonMessage = gson.toJson(trademsg);
         CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
         message.setOperation(MessageOperation.TRADEITEMS);
         message.setProperty(property);
         message.setContent(jsonMessage);
+        wsCommunicator.sendMessageToServer(message);
+    }
+
+    public void sessionTotalRequest(String property)
+    {
+        System.out.println("REQUEST SESSION TOTAL");
+        CommunicatorWebsocketMessage message = new CommunicatorWebsocketMessage();
+        message.setOperation(MessageOperation.GETSESSION);
+        message.setProperty(property);
         wsCommunicator.sendMessageToServer(message);
     }
 }

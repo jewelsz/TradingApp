@@ -5,5 +5,6 @@ public enum TradeOperation
     ADD,
     REMOVE,
     ACCEPT,
-    TRADE
+    TRADE,
+    SESSIONS
 }

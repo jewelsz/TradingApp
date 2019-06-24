@@ -139,4 +139,19 @@ public class DatabaseItemsService implements IDatabaseItemCommunication
         return playerid;
     }
 
+    @Override
+    public void addItemToPlayer(int itemid, int playerid)
+    {
+        String sql = "INSERT INTO inventory(playerid, itemid) VALUES(?,?)";
+
+        try (Connection conn = this.con.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, playerid);
+            pstmt.setInt(1, itemid);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

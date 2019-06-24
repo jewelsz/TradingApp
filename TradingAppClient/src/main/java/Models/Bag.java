@@ -1,6 +1,7 @@
 package Models;
 
 import Shared_Models.Item;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,11 +15,14 @@ public class Bag
     }
 
     public void addItem(Item item) {
+        System.out.println("Bag - add: "+item);
         inventory.add(item);
     }
 
     public void removeItem(Item item) {
+        System.out.println("Bag - remove: "+item);
         inventory.remove(item);
+
     }
 
     public void clear() {
@@ -27,5 +31,21 @@ public class Bag
 
     public void setInventory(ObservableList<Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public void opponentRemoveItem(Item item) {
+        System.out.println("Bag - remove: "+item);
+        for(Item i : inventory)
+        {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+            if(i.getInventoryId() == item.getInventoryId())
+            {
+                inventory.remove(i);
+            }
+
+                }});
+        }
     }
 }

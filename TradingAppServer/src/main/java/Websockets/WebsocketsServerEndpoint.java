@@ -18,7 +18,11 @@ public class WebsocketsServerEndpoint
     @OnOpen
     public void onConnect(Session session) {
         System.out.println("Connected SessionID: "+ session.getId());
-
+        if(msgProcessor == null)
+        {
+            msgProcessor = new WebsocketsMessageProcessor();
+            System.out.println("INITIALIZE WEBSOCKETMESSAGEPROCESSOR");
+        }
         sessions.add(session);
         System.out.println("Session added. Session count is "+ sessions.size());
     }

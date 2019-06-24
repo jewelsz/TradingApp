@@ -124,7 +124,7 @@ public class ClientWebsocketsCommunicator extends Observable
             return;
         }
 
-        System.out.println("Message: "+ itemMessage.getOperation());
+        System.out.println("Incoming message: "+ itemMessage.getOperation());
         this.setChanged();
         this.notifyObservers(itemMessage);
     }

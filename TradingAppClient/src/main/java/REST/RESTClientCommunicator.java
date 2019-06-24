@@ -92,7 +92,6 @@ public class RESTClientCommunicator
 
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
-            System.out.println("JSON entity: " + entityString);
 
             player = gson.fromJson(entityString, Player.class);
 
@@ -114,7 +113,6 @@ public class RESTClientCommunicator
 
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
-            System.out.println("JSON entity: " + entityString);
 
             tradeSucces = gson.fromJson(entityString, boolean.class);
 
@@ -135,7 +133,6 @@ public class RESTClientCommunicator
 
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
-            System.out.println("JSON entity: " + entityString);
 
             items = gson.fromJson(entityString, ItemResponse.class);
 
@@ -156,7 +153,6 @@ public class RESTClientCommunicator
 
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
-            System.out.println("JSON entity: " + entityString);
 
             players = gson.fromJson(entityString, PlayersList.class);
 

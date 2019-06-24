@@ -30,14 +30,32 @@ public class InventoryController
 
     public List<Item> tradeItems()
     {
-        List<Item> items = tradeBag.inventory;
-        tradeBag.clear();
+        List<Item> items = opponentBag.inventory;
+        System.out.println("INVENTORY TRADE ITEMS BAG INHOUD: " + items);
         return items;
+    }
+
+    public void tradeClear()
+    {
+        tradeBag.clear();
+        opponentBag.clear();
     }
 
     public boolean tradeReadyCount()
     {
         if (tradeBag.inventory.size() >= 1) return true;
         return false;
+    }
+
+    public Bag getPlayerBag() {
+        return playerBag;
+    }
+
+    public Bag getTradeBag() {
+        return tradeBag;
+    }
+
+    public Bag getOpponentBag() {
+        return opponentBag;
     }
 }
