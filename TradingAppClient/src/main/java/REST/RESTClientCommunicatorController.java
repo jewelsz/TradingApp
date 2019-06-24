@@ -1,5 +1,7 @@
 package REST;
 
+import Interfaces.IItemService;
+import Interfaces.IplayerService;
 import Shared_Models.Item;
 import Shared_Models.Player;
 
@@ -7,39 +9,41 @@ import java.util.List;
 
 public class RESTClientCommunicatorController
 {
-    RESTClientCommunicator communicator;
+    IplayerService playerService;
+    IItemService itemService;
 
     public RESTClientCommunicatorController()
     {
-        communicator = new RESTClientCommunicator();
+        playerService = new RESTClientCommunicator();
+        itemService = new RESTClientCommunicator();
     }
 
     public List<Item> getInventory(int playerid)
     {
-        List<Item> inventory = communicator.getInventory(playerid).getItems();
+        List<Item> inventory = itemService.getInventory(playerid).getItems();
         return inventory;
     }
 
     public List<Player> getAllPlayers()
     {
-        List<Player> players = communicator.getAllPlayers().getPlayers();
+        List<Player> players = playerService.getAllPlayers().getPlayers();
         return players;
     }
 
-    public boolean tradeItems(List<Item> items, int playerid)
-    {
-        return communicator.tradeItems(items, playerid);
-    }
+//    public boolean tradeItems(List<Item> items, int playerid)
+//    {
+//        return communicator.tradeItems(items, playerid);
+//    }
 
     public void register(String username, String password)
     {
         Player player = new Player(username, password);
-        communicator.postRegistration(player);
+        playerService.postRegistration(player);
     }
 
     public Player Login(String username, String password)
     {
-        Player player = communicator.getPlayer(username, password);
+        Player player = playerService.getPlayer(username, password);
         return player;
     }
 }

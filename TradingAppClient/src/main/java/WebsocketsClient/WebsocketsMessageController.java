@@ -1,6 +1,7 @@
 package WebsocketsClient;
 
 import Controller.GameController;
+import Interfaces.ITradeCommunicationService;
 import Shared_Models.Item;
 import Websockets.ClientWebsocketsCommunicator;
 import com.google.gson.Gson;
@@ -11,7 +12,7 @@ import Enums.TradeOperation;
 
 import java.util.List;
 
-public class WebsocketsMessageController
+public class WebsocketsMessageController implements ITradeCommunicationService
 {
     Gson gson = new Gson();
     private ClientWebsocketsCommunicator wsCommunicator = null;

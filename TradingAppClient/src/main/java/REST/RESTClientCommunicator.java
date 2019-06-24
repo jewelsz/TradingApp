@@ -1,5 +1,7 @@
 package REST;
 
+import Interfaces.IItemService;
+import Interfaces.IplayerService;
 import Shared_Models.Item;
 import Shared_Models.Player;
 import Messages.PlayersList;
@@ -17,7 +19,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.util.List;
 
-public class RESTClientCommunicator
+public class RESTClientCommunicator implements IItemService, IplayerService
 {
     private final String url = "http://localhost:8090/registration/"; // TODO Config file
     private final Gson gson = new Gson();
@@ -25,7 +27,7 @@ public class RESTClientCommunicator
     public RESTClientCommunicator() {
     }
 
-    Player postRegistration(Player player) {
+    public Player postRegistration(Player player) {
         final String query = url + "add";
         System.out.println("POST: " + query);
 
@@ -44,7 +46,7 @@ public class RESTClientCommunicator
         return executeQuery(httpPostQuery);
     }
 
-    Player getPlayer(String player, String password) {
+    public Player getPlayer(String player, String password) {
         final String query = url + "/player/"+ player + "/" + password;
         System.out.println("GET: " + query);
 
@@ -53,7 +55,7 @@ public class RESTClientCommunicator
         return executeQuery(httpGetQuery);
     }
 
-    PlayersList getAllPlayers() {
+    public PlayersList getAllPlayers() {
         final String query = url + "/player/players";
         System.out.println("GET: " + query);
 
@@ -62,7 +64,7 @@ public class RESTClientCommunicator
         return executePlayersQuery(httpGetQuery);
     }
 
-    ItemResponse getInventory(int playerid) {
+    public ItemResponse getInventory(int playerid) {
         final String query = url + "/items/" + playerid;
         System.out.println("GET: " + query);
 
