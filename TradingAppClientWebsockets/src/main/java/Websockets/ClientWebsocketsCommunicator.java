@@ -28,7 +28,7 @@ public class ClientWebsocketsCommunicator extends Observable
     public static ClientWebsocketsCommunicator getInstance() {
         if (instance == null) {
             instance = new ClientWebsocketsCommunicator();
-            System.out.println("GreeterClientEndpoint singleton instantiated");
+            System.out.println("ClientEndpoint singleton instantiated");
         }
         return instance;
     }

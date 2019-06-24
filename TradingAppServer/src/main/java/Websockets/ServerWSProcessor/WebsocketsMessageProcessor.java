@@ -55,8 +55,8 @@ public class WebsocketsMessageProcessor
                     if (propertySessions.get(property) == null)
                     {
                         propertySessions.put(property, new ArrayList<Session>());
-                        System.out.println("Register "+ property + "Session: "+ propertySessions);
-                        System.out.println("SERVER WS AANTAL SESSION: "+ propertySessions.size());
+                        System.out.println("Register "+ property + "  Session: "+ session.getId());
+                        System.out.println("SERVER WS AANTAL SESSIONS: "+ propertySessions.size());
                     }
                     else
                     {
@@ -72,6 +72,7 @@ public class WebsocketsMessageProcessor
                     if (propertySessions.get(property) != null)
                     {
                         propertySessions.get(property).add(session);
+                        System.out.println("Websockets - Name: "+ property + " session: "+ session.getId());
                         dbComm.setSessionTotal(propertySessions.get(property).size());
                     }
                     break;

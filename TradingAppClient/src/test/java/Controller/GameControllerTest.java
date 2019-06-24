@@ -4,6 +4,7 @@ import DatabaseCommunicator.DatabaseConnection;
 import DatabaseCommunicator.DatabaseController;
 import Shared_Models.Item;
 import Shared_Models.Player;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +22,11 @@ public class GameControllerTest
         System.out.println("@BeforeEach! setting up GameController...");
         gameController = new GameController();
     }
-
+    @AfterAll
+    public static void cleanUp(){
+        DatabaseController db = new DatabaseController();
+        db.removePlayer("nicokuijpers");
+    }
     @Test
     public void registerAndLoginTest()
     {

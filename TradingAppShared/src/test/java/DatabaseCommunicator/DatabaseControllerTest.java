@@ -4,6 +4,7 @@ import Messages.ItemResponse;
 import Messages.PlayersList;
 import Shared_Models.Item;
 import Shared_Models.Player;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,6 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DatabaseControllerTest
 {
     DatabaseController dbController = new DatabaseController();
+
+    @AfterAll
+    public static void cleanUp(){
+        DatabaseController db = new DatabaseController();
+        db.removePlayer("Coolusername");
+        db.removePlayer("Bob");
+    }
     @Test
     public void addRegistrationTest()
     {

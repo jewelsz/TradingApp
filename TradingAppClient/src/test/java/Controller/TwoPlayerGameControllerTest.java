@@ -5,6 +5,7 @@ import Shared_Models.Item;
 import com.sun.javafx.application.PlatformImpl;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -45,9 +46,6 @@ class TwoPlayerGameControllerTest
     {
         databaseController = new DatabaseController();
 
-//        henksGame = new GameController();
-//        bobsGame = new GameController();
-
         henksGUIController = new GUIController();
         bobsGUIController = new GUIController();
 
@@ -64,20 +62,24 @@ class TwoPlayerGameControllerTest
 
     }
 
+    @BeforeEach
+    void init()
+    {
+        henksGame.getInventoryFromDatabase(106);
+        bobsGame.getInventoryFromDatabase(107);
+
+        henksItems = henksGame.inventoryController.playerBag.inventory;
+        bobsItems = bobsGame.inventoryController.playerBag.inventory;
+    }
+
     @AfterAll
     public static void cleanUp(){
-//        DatabaseController db = new DatabaseController();
-//        db.removePlayer("Henk");
-//        db.removePlayer("Bob");
+
     }
 
     @Test
     public void loginTest()
     {
-        //Log in al Henk en bob. Deze gegevens kloppen
-       // henksGame.login("Henk", "wachtwoord123");
-       // bobsGame.login("Bob", "123wachtwoord");
-
         //Henk id = 106   Bob id = 107
         assertEquals(106, henksGame.getThisPlayer().getId());
         assertEquals(107, bobsGame.getThisPlayer().getId());
@@ -103,41 +105,28 @@ class TwoPlayerGameControllerTest
 
     @Test
     public void playerItemBagTest() throws InterruptedException {
-        henksItems = henksGame.inventoryController.playerBag.inventory;
+        //Test bag is niet leeg:
         assert(henksItems.size()>1);
-        System.out.println("TEST BAG ITEMS: "+ henksItems);
-        assertEquals(henksItems.size(), 4);
+        System.out.println("TEST HENKS INVENTORY: "+ henksItems);
+        assertEquals( 4, henksItems.size());
 
-        bobsItems = bobsGame.inventoryController.playerBag.inventory;
         assert(bobsItems.size()>1);
-        assertEquals(bobsItems.size(), 4);
-        System.out.println("TEST BEFORE ITEM: "+henksItems);
+        assertEquals( 4, bobsItems.size());
+        System.out.println("TEST BOBS INVENTORY: "+bobsItems);
 
-        addItemsToTradeTest();
+        //addItemsToTradeTest();
     }
 
+    @Test
     public void addItemsToTradeTest() throws InterruptedException {
         System.out.println("TEST ITEM: "+henksItems);
+        System.out.println("TEST ITEM: "+bobsItems);
         henksGame.addTradeItem(henksGame.inventoryController.playerBag.inventory.get(1));
         TimeUnit.SECONDS.sleep(2);
-        assertEquals(1, bobsGame.inventoryController.opponentBag.inventory.size());
-//        assertEquals(0, henksGame.inventoryController.opponentBag.inventory.size());
-        System.out.println("Henks opponent items: "+ henksGame.inventoryController.opponentBag.inventory);
+        assertEquals(1, henksGame.inventoryController.opponentBag.inventory.size());
+        assertEquals(1, henksGame.inventoryController.tradeBag.inventory.size());
+        assertEquals(3, henksGame.inventoryController.playerBag.inventory.size());
         System.out.println("bobs opponent items: "+ bobsGame.inventoryController.opponentBag.inventory);
-    }
-
-
-    public void tradingItemsTest()
-    {
-
-        for(Item i : henksGame.inventoryController.playerBag.inventory)henksGame.addTradeItem(i);
-        //for(Item b : bobsGame.inventoryController.playerBag.inventory) bobsGame.addTradeItem(b);
-
-        henksGame.acceptTrade();
-
-        assertTrue(bobsGame.getOpponentReady());
-
-        bobsGame.acceptTrade();
     }
 
 }
